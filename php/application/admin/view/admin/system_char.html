@@ -1,0 +1,147 @@
+<div class="comment_list" ng-controller="com_ctrl">
+    <h1 class="fw_b">字段管理</h1>
+    <ul class="menu_title" id="myTab">
+        <li class="active" id="btnvlst" data-toggle="tab">字段列表</li>
+        <li class="" id="btadnv" data-toggle="tab">新增字段</li>
+    </ul>
+
+    <div class="comment_list_all  verified_list">
+            <div class="search_box" id="searchadd">
+                    <select class="cityip">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                    <div class="result_opt" style="float:right;">
+                        <a class="pass_opt opt_active" id="btadde">更新字段缓存</a>
+                    </div>
+                    <div class="search_opt" style="float: right;">
+                        <input type="text" id="searchInput" class="search_file" name="searchCom"><span>搜索</span>
+                    </div>
+
+            </div>
+            <div class="tab-content">
+                <!-- 字段列表 -->
+        <table id="mdlist" class="table_box view_list" >
+            <thead>
+                <tr>
+                     
+                    <td style="width:5%;">排序</td>
+                    <td style="width:13%;">字段别名</td>
+                    <td style="width:13%">字段名</td>
+                    <td style="width:10%">类型</td>
+                    <td style="width:15%">字段提示</td>
+                    <td style="width: 10%">是否必填</td>
+                    <td style="width:10%">是否唯一</td>
+                    <td style="width:10%">默认值</td>
+                    <td style="width: 20%">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                    <td>
+                        <div class="comment_option"> 
+                            <a href="#"><span key="navid" style="margin-left: 5px">修改</span></a>
+                            <a href="#"><span key="navid" style="margin-left: 5px">禁用</span></a>
+                            <span style="margin-left: 5px;z-index: 1;color: #adadad">删除</span>
+                        
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 字段列表 -->
+
+        <!-- 新增字段 -->
+        <div style="display:none;" id="admodle">
+                   <div class="site_name site_info">
+                        <label>字段类型：</label>
+                        <select class="addnavv">
+                            <option>单行文本</option>
+                            <option>多行文本</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+            <div class="site_name site_info">
+                <label>字段名：</label>
+                <input type="text" name="searchCom" class="set_input" placeholder="">
+                <span style="color:#777777">(只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾)</span>
+            </div>
+            <div class="site_name site_info">
+                <label>字段别名：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(例如：文章标题)</span>
+            </div>
+            <div class="site_name site_info">
+                <label>字段提示：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(例如：在这个地方显示的灰色提示文字)</span>
+            </div>
+            <div class="site_name site_info">
+                <label>默认值：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(复选框如有多个默认选中，请用英文逗号隔开,单选框和下拉框直接填写默认选中的值即可)</span>
+            </div>
+            <div class="site_name site_info">
+                <label>字符长度控制：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(例如：5-15即最短5位，最大15位)</span>
+            </div>
+            <div class="site_name site_info">
+                <label>数据验证正则：</label>
+                <select class="addnavv" style="width:100px">
+                    <option>无</option>
+                    <option>手机号</option>
+                    <option>邮箱</option>
+                    
+                </select>
+                <input type="text" name="" class="set_input" placeholder="" style="width: 246px">
+                <span style="color:#777777">(可选择也可自定义填写)</span>
+            </div>
+            <div class="site_name site_info">
+                <label>验证不通<br>过提示信息：</label>
+                <input type="text" name="" class="set_input" placeholder=""> 
+            </div>
+
+            <input comtime="admin_system_update" type="submit" value="提交" class="save_btn save_set" />
+        </div>
+        <!--  新增字段 -->
+
+
+            </div>
+        
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $(function(){
+            $("#btnvlst").click(function(){
+                $("#mdlist").show();
+                $("#admodle").hide();
+                $("#searchadd").show();
+
+            });
+             $("#btadnv").click(function(){
+                $("#mdlist").hide();
+                $("#admodle").show();
+                $("#searchadd").hide();
+            });
+
+        });
+
+    });
+
+</script>

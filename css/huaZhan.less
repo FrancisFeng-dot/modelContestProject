@@ -1,0 +1,97 @@
+@width-1200:1200px;
+@font-12:12px;
+@font-14:14px;
+@font-16:16px;
+@font-18:18px;
+@font-20:20px;
+@font-22:22px;
+@font-24:24px;
+h1,h2,h3,h4,h5,h6,p,body,ul,dl,dd,ol{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+body{
+  min-width:1200px;
+}
+a{
+  text-decoration: none;
+}
+.clear:after{
+  display: block;
+  content:"";
+  clear:both;
+}
+.area{
+  width:@width-1200;
+  margin:auto;
+}
+.header{
+  //background-color:#F0EBDD;
+  background:url(../imgs/banner-shuHuaZhan.png) center no-repeat;
+  margin-bottom:209px;
+  position:relative;
+  height:900px;
+  .nav-label{
+    //background:url(../imgs/banner-shuHuaZhan.png) center no-repeat;
+    height:900px;
+    position:relative;
+    ul{
+      float:right;
+      position:relative;
+      z-index:100;
+      li{
+        float:left;
+        width:179px;
+        height:140px;
+        line-height:140px;
+        text-align:center;
+      }
+    }
+    a{
+      font-size:@font-18;
+      color:#000;
+    }
+    li.active{
+      background-color:#A20000;
+      a{
+        color:#fefefe;
+      }
+    }
+  }
+}
+//中间内容：画
+.gallery1 img,.gallery2 img,.gallery3 img{
+  vertical-align: middle;
+}
+//画廊1
+.gallery1{
+  margin-bottom:22px;
+  .draw{
+    float:left;
+    overflow:hidden;
+  }
+  div.draw+div{
+    margin-left:22px;
+  }
+}
+//画廊2
+.gallery2{
+  //padding-left:3px;
+  //padding-right:6px;
+  margin-bottom:31px;
+  .draw{
+    float:left;
+    overflow:hidden;
+  }
+  div.draw+div{
+    margin-left:26px;
+  }
+}
+//画廊3
+.gallery3{
+  margin-bottom:225px;
+  > div{
+    overflow:hidden;
+  }
+}

@@ -1,0 +1,75 @@
+<div class="comment_list" ng-controller="com_ctrl">
+<input type="hidden" id="codeid" value="{$code.usercodeid}">
+    <h1 class="fw_b">黑名单</h1>
+    <ul class="menu_title" id="myTab">
+        <li class="active">黑名单列表</li>
+    </ul>    
+    <div class="comment_list_all  verified_list">
+            <div class="search_box">
+                    <div class="result_opt">
+                        <form class="ng-pristine ng-valid">
+                    <div class="search_opt">
+                        <input type="text" id="searchInput" class="search_file" name="searchCom" ng-model="user_blacklist_select.params.keyword" placeholder="请输入搜索词">
+                        <span comtime="user_blacklist_select">搜索</span>
+                    </div>
+                </form>
+                    </div>
+            </div>
+            <div class="tab-content">
+                <!-- 黑名单 -->
+        <table id="mdlist" class="table_box view_list" >
+            <thead>
+                <tr>
+                     
+                    <td style="width:5%;">排序</td>
+                    <td style="width:13%;">操作人</td>
+                    <td style="width:13%">拉黑用户名</td>
+                    <td style="width:15%">操作时间</td>
+                    <td style="width:20%">备注</td>
+                    <td style="width: 10%">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(key, value) in user_blacklist_select.data">
+                    <td ng-bind="value.listorder"></td>
+                    <td ng-bind="value.nickname"></td>
+                    <td ng-bind="value.blackuser"></td>
+                    <td ng-bind="value.blacktime"></td>
+                    <td></td>
+                    
+                    <td>
+                        <div class="comment_option"> 
+                            <a comdone="" key='codeid' v="0"><span>取消拉黑</span></a>  
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="page" class="t_c" style="text-align: center;margin-top: 25px;">
+        </div>
+        <!-- 黑名单 -->
+    </div>  
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $(function(){
+            $("#btnvlst").click(function(){
+                $("#mdlist").show();
+                $("#admodle").hide();
+                $("#searchadd").show();
+
+            });
+             $("#btadnv").click(function(){
+                $("#mdlist").hide();
+                $("#admodle").show();
+                $("#searchadd").hide();
+            });
+
+        });
+
+    });
+
+</script>

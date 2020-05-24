@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>红纽扣超级管理系统</title>
+	<link rel="stylesheet" type="text/css" href="/php/public/admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/php/public/admin/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/php/public/admin/css/commonList.css">
+	
+	<link rel="stylesheet" href="/php/public/admin/css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="/php/public/admin/css/style.css?v=4.1.0">
+
+	<link rel="stylesheet" type="text/css" href="/php/public/admin/css/common.css">
+	<link rel="stylesheet" href="/php/public/admin/css/awesome-bootstrap-checkbox.css"/>
+	<link rel="stylesheet" type="text/css" href="/php/public/admin/css/global.css">
+		<!-- YSframe框架 基于seajs -->
+	<script src="/YS-frame/seajs/2.2.0/sea.js" ></script>
+	<!-- 全局js -->  
+ 
+
+
+	<!-- 主入口配置js文件 -->
+	<script> 
+    window.root = '/admin.php/';
+	//1、定义基本配置  
+		seajs.config({
+		base: '/',  // 设置别名，如果在二级目录这样配置：则base:'/erjimulu/'
+		alias: {
+		//YSframe框架基础 js模块
+		'jquery': '/YS-frame/jquery/jquery/1.10.1/jquery.js',
+		'angularjs':'/YS-frame/angular/1.4.6/angular.min.js',  
+		'YS':'/YS-frame/YS.js',  
+		//这里加载项目js
+		 'global':'/php/public/admin/js/global.js'  
+		}
+		}); 
+	// 3、加载 项目js模块
+		seajs.use(['angularjs','jquery','YS','global'],function(){ 
+		seajs.use(['fac','main','conf'],function(){ 
+		  angular.element(document).ready(function() { 
+	       angular.module('app',['myfact','main','render']); 
+	         angular.bootstrap(document, ['app']);  
+		   });
+		}); 
+		}); 
+    </script> 
+</head>
+<body id="serviceCenter" class="fixed-sidebar" ng-controller="main_ctrl">
+	 <div id="loader" style="display: none;"> </div>
+	<nav class="sc_nav navbar-default navbar-static-side" id="scNav">
+		<div class="sidebar-collapse" style="width: 180px;">
+		    <div class="topLogo">
+		    	<img src="/php/public/admin/images/logo.png" alt="" style="width: 47px;height: 47px;float: left;border-radius: 6px;">
+		    	<span style="font-size: 18px;color:#32a4fc;float: left;margin-left:9px;">红纽扣</span>
+		    	<span  style="font-size: 14px;color:#32a4fc;margin-left:-36px;margin-top: 28px;font-weight: 100;">超级管理系统</span>
+		    	<div class="lgext">
+		    	  <button>登录</button>
+		    	  <button lgout>退出</button>
+		    	</div>
+		    </div>
+		    
+		   	<div>
+			   	<ul class="sc_nav_list" id="side-menu">
+			   		<li>
+						<a href="#admin/base"><span><img src="/php/public/admin/images/icon12.png">后台首页</span></a> 
+					</li>
+
+					<li class="{{value.cls}}" ng-repeat="(key, value) in getmenu.data">
+						<a ng-click="chkmenu(value)" ng-href="{{value.menu_url?'#'+value.menu_url:''}}">
+						<span><img src="/php/public/admin/images/icon12.png">
+						<span ng-bind="value.name"></span></span></a>  
+						<ul>
+							<li class="nav_li {{menufind(val.menu_url)}}"  ng-repeat="(key, val) in value.chllist"><a href="#{{val.menu_url}}" ng-bind="val.name"></a></li>
+						 
+						</ul>
+					</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- <li>
+						<a href=""><span><img src="/php/public/admin/images/icon15.png">系统设置</span></a>
+						 
+						<ul>
+							<li class="nav_li"><a href="#system/website">站点设置</a></li>
+							<li class="nav_li"><a href="#system/database">数据库管理</a></li>
+							<li class="nav_li"><a href="#system/menu">后台菜单</a></li>
+							<li class="nav_li"><a href="#system/email">邮件模板</a></li>
+							<li class="nav_li"><a href="#system/model">模型管理</a></li> 
+							<li class="nav_li"><a href="#system/conf">模型配置</a></li> 
+						</ul>
+					</li>
+					<li>
+						<a href=""><span><img src="/php/public/admin/images/icon13.png">门户管理</span></a>
+						<ul>
+							<li class="nav_li"><a href="#portal/nav">导航管理</a></li>
+							<li class="nav_li"><a href="#/portal/link">友情链接</a></li>
+							<li class="nav_li"><a href="#/portal/banner">轮播管理</a></li>
+							<li class="nav_li"><a href="#portal/keyword">关键字管理</a></li>
+							<li class="nav_li"><a href="#portal/content">内容管理</a></li>
+							<li class="nav_li"><a href="#portal/city">城市管理</a></li>
+							<li class="nav_li"><a href="#portal/comment">评论管理</a></li>
+							<li class="nav_li"><a href="#portal/feed">意见反馈</a></li>
+							<li class="nav_li"><a href="#portal/sensitive">敏感词库</a></li>
+ -->
+                        <!-- 智诚后台 -->
+                            <!-- <li class="nav_li"><a href="#portal/hot">热门话题</a></li>
+                            <li class="nav_li"><a href="#portal/school">合作学校管理</a></li>
+                            <li class="nav_li"><a href="#portal/unite">联合国部分</a></li>
+                            <li class="nav_li"><a href="#portal/classes">家长学堂</a></li>
+                            <li class="nav_li"><a href="#portal/views">观点</a></li>
+                            <li class="nav_li"><a href="#portal/notice">系统通知管理</a></li>
+                            <li class="nav_li"><a href="#portal/customer">推荐客户名单管理</a></li>
+                            <li class="nav_li"><a href="#portal/question">问卷管理</a></li> 
+                             -->
+                        <!-- 智诚后台 -->
+							
+					<!-- 	</ul>
+					</li>
+					<li>
+						<a href=""><span><img src="/php/public/admin/images/icon1.png">用户管理</span></a>
+						<ul>
+							<li class="nav_li"><a href="#user/admin">管理员管理</a></li>
+							<li class="nav_li"><a href="#user/admingroup">管理员权限</a></li>
+							<li class="nav_li"><a href="#user/userlist">用户列表</a></li>
+							<li class="nav_li"><a href="#user/usergroup">用户权限</a></li>
+							<li class="nav_li"><a href="#user/log">登录日志</a></li>
+							<li class="nav_li"><a href="#user/auth">认证管理</a></li>
+							<li class="nav_li"><a href="#user/vip">会员管理</a></li>
+							<li class="nav_li"><a href="#user/order">订单管理</a></li>
+ -->
+						<!-- 智诚后台 -->
+						    <!-- <li class="nav_li"><a href="#user/course">试听课程管理</a></li>
+						     <li class="nav_li"><a href="#user/listen">试听券申请</a></li>
+						     <li class="nav_li"><a href="#user/apply">大V申请列表</a></li>
+						     <li class="nav_li"><a href="#user/blacklist">黑名单</a></li> -->
+						 <!-- 智诚后台 -->
+
+
+
+
+
+
+					<!-- 	</ul>
+					</li> -->
+
+			    
+					
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="sc_main pd_top" id="scMain"  ng-include="body.url" > 
+
+	    <!-- <div class="header">当前位置：公司管理-公司监控</div>  -->
+	</div>
+
+</body>
+</html>
+	 

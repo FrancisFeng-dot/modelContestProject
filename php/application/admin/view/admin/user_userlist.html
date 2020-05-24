@@ -1,0 +1,83 @@
+<div class="comment_list" ng-controller="com_ctrl">
+<input type="hidden" id="codeid" value="{$code.usercodeid}">
+    <h1 class="fw_b" >用户管理</h1>
+    <ul class="menu_title">
+        <li class="active">用户列表</li>
+    </ul>
+      
+
+    
+    <div class="comment_list_all verified_list">
+        <div class="search_box" style="padding-bottom: 0px;" ng-if="tapshow==0">
+            <div class="search_opt" style="float: right;position: initial;">
+                <form class="ng-pristine ng-valid">
+                  <div class="search_opt">
+                      <input ng-model="com_list_page.params.keyword" type="text" id="searchInput" class="search_file ng-pristine ng-valid ng-touched" name="searchCom"  placeholder="请输入搜索词" style="height: 33px;">
+                      <span comtime="com_list_page">搜索</span>
+                  </div>
+                </form>
+            </div>
+            </div>
+            <div class="tab-content" ng-if="tapshow==0">
+            <!-- 家长列表 -->
+        <table class="table_box view_list" id="formlist" style="margin-top:58px;">
+            <thead>
+                <tr>
+                    <td style="width:5%;">编号</td>
+                    <td style="width:6%;">姓名</td>
+                    <td style="width:5%;">模特类型</td>
+                    <td style="width:6%;">出生日期</td>
+                    <td style="width:6%;">电话</td>
+                    <td style="width:7%;">邮箱</td>
+                    <td style="width:6%;">地区</td>
+                    <td style="width:5%;">海选类型</td>
+                    <td style="width:7%;">学校/单位</td>
+                    <td style="width:13%;">个人简介</td>
+                    <td style="width:8%;">报名时间</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="value.isdel!=1" ng-repeat="(key, value) in com_list_page.data.datalist">
+                    <td ng-bind="value.username"></td>
+                    <td ng-bind="value.modelname"></td>
+                    <td>
+                        <span ng-if="value.modeltype==1">职业模特</span>
+                        <span ng-if="value.modeltype==2">平面模特</span>
+                    </td>
+                    <td ng-bind="value.birthday"></td>
+                    <td ng-bind="value.telephone"></td> 
+                    <td ng-bind="value.email"></td>
+                    <td ng-bind="value.city"></td> 
+                    <td>
+                        <span ng-if="value.audition==1">网络海选</span>
+                        <span ng-if="value.audition==2">现场海选</span>
+                    </td>
+                    <td ng-bind="value.company"></td> 
+                    <td ng-bind="value.description" class="textover3" style="height:99px;"></td>
+                    <td ng-bind="value.createtime"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="page" class="t_c" style="text-align: center;margin-top: 25px;"></div>
+        </div>
+        <!-- 家长列表 -->
+      <!-- <div style="margin-top:36px;" ng-if="tapshow==1">
+            <div class="site_name site_info">
+                   <label class="col-md-2 control-label">模特照片：</label>
+                   <div class="col-md-1" >
+                  <img ng-repeat="(key, value) in com_detail.data.imgurlarr" style="max-width: 800px;margin-bottom: 30px;" ng-src="/php/upload/{{value.img}}"   class="ng-binding">
+                   </div>
+                 </div>
+                 <div style="clear: both;"></div>
+              </div> -->
+          <!--家长查看详情-->
+
+
+
+    </div>
+
+
+
+
+    </div>

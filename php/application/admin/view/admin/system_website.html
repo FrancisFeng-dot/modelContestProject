@@ -1,0 +1,288 @@
+<div class="comment_list" ng-controller="com_ctrl">
+    <h1 class="fw_b">站点设置</h1>
+    <ul class="menu_title" >
+        <li class="{{tapshow==0?'active':''}}" id="baseset" tapshow="0"  >基本设置</li>
+        <li class="{{tapshow==1?'active':''}}" id="seosett"  tapshow="1" >SEO设置</li>
+        <li class="{{tapshow==2?'active':''}}" id="fileset"  tapshow="2" >附件设置</li>
+        <li class="{{tapshow==3?'active':''}}" id="emailset"  tapshow="3" >邮件设置</li>
+        <li class="{{tapshow==4?'active':''}}" id="shopset"  tapshow="4">商城模块设置</li>
+ 
+
+    </ul>
+
+    <!-- 基本设置 -->
+
+
+    <div class="comment_list_all  verified_list">
+        <div class="search_box">
+            <div class="tab-content">
+                <!--  基本设置  -->
+                <div ng-if="tapshow==0" style="margin-top:42px;">
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">站点名称：</label>
+                        <input type="text" ng-model="system_website_select.data.WEB_NAME"  class="set_input" placeholder="站点名称" >
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">默认搜索词：</label>
+                        <input type="text"  ng-model="system_website_select.data.SEARCH_WORD"  class="set_input" placeholder="默认搜索词">
+                        <span style="color:#777777">(多个之间用竖线 "|" 隔开)</span>
+                    </div>
+
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">管理员邮箱：</label>
+                        <input type="text" ng-model="system_website_select.data.ADMIN_EMAIL" name="searchCom" class="set_input" placeholder="请输入邮箱">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">网站备案号：</label>
+                        <input type="text" ng-model="system_website_select.data.WEB_COPYRIGHT" name="" class="set_input" placeholder="网站备案号">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">后台操作日志保存数量：</label>
+                        <input ng-model="system_website_select.data.WEB_LOG_MAX_COUNT" type="text" class="set_input" name="searchCom" class="set_input" placeholder="后台操作日志保存数量">
+                    </div>
+
+                    <div class="site_name site_info ">
+                        <label class="col-md-3 control-label">站点统计代码：</label>
+                        <textarea ng-model="system_website_select.data.WEB_STATISTICS_CODE" cols="5" style="width:350px; height: 90px;outline:none;padding-left: 0px" placeholder="站点统计代码"></textarea>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">生成静态页保存路径：</label>
+                        <input ng-model="system_website_select.data.CREATE_HTML_DIR" type="text" class="set_input" name="searchCom" class="set_input" placeholder="生成静态页保存路径">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">面包屑导航间隔符号:</label>
+                        <input ng-model="system_website_select.data.POSITION_LIST_SYMBOL" type="text" class="set_input" name="searchCom" class="set_input" placeholder="生成静态页保存路径">
+                    </div>
+                     <div class="site_name site_info">
+                        <label style="width:100%;"><input type="text"  ng-model="system_website_select.data.POINT_PRICE" style="width:93px;height:28px;display:inline-block;">元兑换 <input type="text" ng-model="system_website_select.data.POINT_NUM"   style="width:93px;height:28px;display:inline-block;">积分</label>
+                       <br />
+                        <span style="color:red;margin-top:34px;">注意：购买须知请在家长学堂，单页内容中填写购买须知 注：此积分规则只用于顾问推荐客户并在顾客消费的情况下按照此积分规则兑换积分，修改兑换积分规则，从修改兑换积分规则的这一时间后才开始执行此规则，原有的积分不作改动，并会以通知的形式通知顾问。</span>
+                    </div>
+
+
+                    <!-- <div class="site_name site_info">
+                        <label class="col-md-3 control-label">用户分组类型：</label>
+                        <label for="identity1">
+                            <input ng-model="system_website_select.data.USER_GROUP_TYPE" type="radio" id="identity1" name="b" value="1" placeholder="" >
+                            <p style="display:inline-block;padding-right:30px;position:absolute;">手动分配(或注册时候自选)</p>
+                        </label>
+                        <label for="identity2">
+                            <input ng-model="system_website_select.data.USER_GROUP_TYPE" type="radio" id="identity2" name="b" value="2" placeholder="" style="margin-left: 50px">
+                            <p style="display: inline-block;">按积分配</p>
+                        </label>
+                    </div>
+                    
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">远程图片下载到本地：</label>
+                        <label for="c">
+                           <input ng-model="system_website_select.data.REMOTE_IMG_UPLOAD" value="1" type="radio" name="dowmload" id="c">
+                           <p style="display: inline-block;">是</p>
+                        </label>
+                        <label ng-model="system_website_select.data.REMOTE_IMG_UPLOAD" value="0" for="c2" style="margin-left: -80px">
+                           <input type="radio" name="dowmload" id="c2">
+                           <p style="display: inline-block;">否</p>
+                        </label>
+                    </div>
+                    
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">删除非站内链接：</label>
+                        <label for="del">
+                            <input ng-model="system_website_select.data.DELETE_REMOTE_URL" value="1" type="radio" id="del" name="d">
+                            <p style="display: inline-block;">是</p>
+                        </label>
+                        <label for="del2" style="margin-left: -80px">
+                            <input ng-model="system_website_select.data.DELETE_REMOTE_URL" value="0" type="radio" id="del2" name="d">
+                            <p style="display:inline-block;">否</p>
+                        </label>
+                    </div>
+                    
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">提取第一张图片为缩略图：</label>
+                    
+                        <label for="extract">
+                            <input ng-model="system_website_select.data.FIRST_IMG_THUMB" type="radio" id="extract" name="a"  value="1" placeholder="">
+                            <p style="display: inline-block;">是</p>
+                        </label>
+                        <label for="extract2" style="margin-left: -80px">
+                            <input ng-model="system_website_select.data.FIRST_IMG_THUMB" type="radio" id="extract2" name="a" value="0" placeholder="">
+                            <p style="display: inline-block;">否</p>
+                        </label>
+                    </div> -->
+                    <div style="margin-left: 177px;">
+                      <input comtime="system_website_update" style="margin-top: 30px;" type="submit" value="保存设置" class="save_btn save_set"/>
+                  </div>
+                </div>
+                <!-- 基本设置 -->
+
+                <!-- SEO设置 -->
+                <div ng-if="tapshow==1" style="margin-top:42px;">
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">站点标题：</label>
+                        <input ng-model="system_website_select.data.META_TITLE" type="text" name="searchCom" class="set_input" placeholder="站点标题">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">站点描述：</label>
+                        <textarea ng-model="system_website_select.data.META_DESCRIPTION" cols="5" class="set_input" style="width:350px; height: 90px;outline:none;padding-left: 0px" placeholder="站点描述"></textarea>
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">站点关键字：</label>
+                        <textarea ng-model="system_website_select.data.META_KEYWORD" cols="5" class="set_input" style="width:350px; height: 90px;outline:none;padding-left: 0px" placeholder="站点关键字"></textarea>
+                    </div>
+                    <div style="margin-left: 177px;">
+                      <input comtime="system_website_update" style="margin-top: 30px;" type="submit" value="保存设置" class="save_btn save_set"/>
+                  </div>
+                </div>
+                <!-- SEO设置 -->
+
+
+                <!-- 附件设置 -->
+                <div ng-if="tapshow==2" style="margin-top:42px;">
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">图片文件类型：</label>
+                        <input ng-model="system_website_select.data.UPLOAD_IMG_ALLOWEXT" type="text" name="searchCom" class="set_input" placeholder="图片文件类型">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">允许上传文件类型：</label>
+                        <input ng-model="system_website_select.data.UPLOAD_FILE_ALLOWEXT" type="text" name="searchCom" class="set_input" placeholder="允许上传文件类型">
+                    </div>
+
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">图片上传大小限制(M)：</label>
+                        <input ng-model="system_website_select.data.UPLOAD_IMG_MAX_SIZE" type="text" name="searchCom" class="set_input" placeholder="图片上传大小限制">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">文件上传大小限制(M)：</label>
+                        <input ng-model="system_website_select.data.UPLOAD_FILE_MAX_SIZE" type="text" name="searchCom" class="set_input" placeholder="文件上传大小限制">
+                    </div>
+                  <!--   <div class="site_name site_info">
+                      <label class="col-md-2 control-label">默认是否添加水印：</label>
+                      <label for="addd">
+                          <input ng-model="system_website_select.data.WATERMARK_ENABLE" value="1" type="radio" id="addd" name="e">
+                          <p style="display: inline-block;">是</p>
+                      </label>
+                      <label for="addd2" style="margin-left: -80px">
+                          <input ng-model="system_website_select.data.WATERMARK_ENABLE" value="0" type="radio" id="addd2" name="e">
+                          <p style="display:inline-block;">否</p>
+                      </label>
+                  </div>
+                  <div class="site_name site_info">
+                      <label class="col-md-2 control-label">水印添加条件：</label>
+                      <input ng-model="system_website_select.data.WATERMARK_MIN_SIZE" type="text" name="" class="set_input" placeholder="水印添加条件">
+                  </div>
+                  <div style="margin-top: 15px">
+                      <label class="col-md-2 control-label">水印图片存放路径：</label>
+                      <input ng-model="system_website_select.data.WATERMARK_IMG_SRC" type="text" class="set_input" style="margin-left: 70px" name="searchCom" class="set_input" placeholder="水印图片存放路径">
+                  </div>
+                  <div class="site_name site_info" style="margin-top: 20px">
+                      <label class="col-md-2 control-label">水印透明度(%)：</label>
+                      <input ng-model="system_website_select.data.WATERMARK_OPACITY" type="text" class="set_input" style="margin-left:4px;margin-top: 2px" name="searchCom" class="set_input" placeholder="水印透明度">
+                  </div>
+                  <div class="site_name site_info">
+                      <label class="col-md-2 control-label">水印位置：</label>
+                      <label for="fa">
+                          <input ng-model="system_website_select.data.WATERMARK_POSITION" value="1" type="radio" name="extract" id="fa">
+                          <p style="display: inline-block;padding-right:20px">顶部居左</p>
+                      </label>
+                      <label for="fa2">
+                          <input ng-model="system_website_select.data.WATERMARK_POSITION" value="3" type="radio" name="extract" id="fa2">
+                          <p style="display: inline-block;padding-right:20px">顶部居右 </p>
+                      </label>
+                      <label for="fa3" style="margin-left:138px">
+                          <input ng-model="system_website_select.data.WATERMARK_POSITION" value="5" type="radio" name="extract" id="fa3">
+                          <p style="display: inline-block;">中部居中</p>
+                      </label>
+                      <label for="fa4">
+                          <input ng-model="system_website_select.data.WATERMARK_POSITION" value="9" type="radio" name="extract" id="fa4">
+                          <p style="display: inline-block;">底部居右 </p>
+                      </label>
+                  
+                                    
+                  </div> -->
+
+                    <div style="margin-left: 177px;">
+                      <input comtime="system_website_update" style="margin-top: 30px;" type="submit" value="保存设置" class="save_btn save_set"/>
+                  </div>
+                </div>
+                <!-- 附件设置 -->
+
+                <!-- 邮件设置 -->
+                <div ng-if="tapshow==3" style="margin-top:42px;">
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">邮箱服务器：</label>
+                        <input ng-model="system_website_select.data.SMTP_HOST" type="text" name="searchCom" class="set_input" placeholder="邮箱服务器">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">服务器端口：</label>
+                        <input ng-model="system_website_select.data.SMTP_PORT" type="text" name="searchCom" class="set_input" placeholder="服务器端口">
+                    </div>
+
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">发件人邮箱地址：</label>
+                        <input ng-model="system_website_select.data.SMTP_USER" type="text" name="searchCom" class="set_input" placeholder="发件人邮箱地址">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">发件人密码：</label>
+                        <input ng-model="system_website_select.data.SMTP_PASS" type="text" name="" class="set_input" placeholder="发件人密码">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-2 control-label">发件人名称：</label>
+                        <input ng-model="system_website_select.data.FROM_NAME" type="text" class="set_input" name="searchCom" class="set_input" placeholder="发件人名称">
+                    </div>
+
+                   <!--  <div class="site_name site_info" style="margin-top: 20px">
+                       <label class="col-md-2 control-label">邮件设置测试：</label>
+                       <input  type="text" class="set_input" style="margin-left:4px;margin-top: -7px;width:348px" name="searchCom" class="set_input" placeholder="测试邮箱"><button class="emailtest">立即测试</button>
+                   </div> -->
+                    <div style="margin-left: 177px;">
+                      <input comtime="system_website_update" style="margin-top: 30px;" type="submit" value="保存设置" class="save_btn save_set"/>
+                  </div>
+                </div>
+                <!-- 邮件设置 -->
+
+                <!-- 商城模块化 -->
+                <div ng-if="tapshow==4" style="margin-top:42px;">
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">默认注册赠送积分：</label>
+                        <input ng-model="system_website_select.data.REG_INTEGRAL" type="text" class="set_input" name="searchCom" placeholder="默认注册赠送积分">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">购买一件商品一次最多可使用积分：</label>
+                        <input ng-model="system_website_select.data.ONCE_USE_MAX_INTEGRAL" type="text" class="set_input" name="searchCom" placeholder="购买一件商品一次最多可使用积分">
+                    </div>
+                    <div class="site_name site_info">
+                        <label class="col-md-3 control-label">每个积分兑换的钱数,单位(元)：</label>
+                        <input ng-model="system_website_select.data.INTEGRAL_PRICE" type="text" class="set_input" name="searchCom" placeholder="每个积分兑换的钱数，单位：元">
+                    </div>
+                    <div class="site_name site_info">
+                <label class="col-sm-3 control-label">是否需要购买后才能评论：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" ng-model="system_website_select.data.BUY_COMMENT" id="extract" value="1" name="radioInline" checked="">
+                            <label for="extract"> 是 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="system_website_select.data.BUY_COMMENT" id="extract1" value="0" name="radioInline" checked="">
+                            <label for="extract1"> 否 </label>
+                        </div>
+                    </li>
+                </ul>
+                </div> 
+                    <div style="margin-left: 177px;">
+                      <input comtime="system_website_update" style="margin-top: 30px;" type="submit" value="保存设置" class="save_btn save_set"/>
+                  </div>
+                </div>
+                <!-- 商城模块化 -->
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ 

@@ -1,0 +1,168 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body,
+ul,
+dl,
+dd,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body{
+  min-width: 1200px;
+}
+a {
+  text-decoration: none;
+}
+.clear:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.area {
+  width: 1200px;
+  margin: auto;
+}
+.header {
+  margin-bottom: 209px;
+  position: relative;
+  height: 900px;
+}
+.header .nav-label ul {
+  float: right;
+  position: relative;
+  z-index: 100;
+}
+.header .nav-label ul li {
+  float: left;
+  width: 179px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+}
+.header .nav-label a {
+  font-size: 18px;
+  color: #000;
+}
+.header .nav-label li.active {
+  background-color: #A20000;
+}
+.header .nav-label li.active a {
+  color: #fefefe;
+}
+.header .swiper-container {
+  width: 100%;
+  height: 900px;
+  position: absolute;
+}
+.header .swiper-slide.one {
+  background: url(../imgs/banner-niuKou.png) 50% 0 no-repeat;
+}
+.header .swiper-slide.two {
+  background: url(../imgs/banner-shuHuaZhan.png) 50% 0 no-repeat;
+}
+.header .swiper-slide.three {
+  background: url(../imgs/banner-mote.png) 50% 0 no-repeat;
+}
+.header .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.header .swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background-color: #F8F5EE;
+}
+.header .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 8px;
+}
+.header .swiper-container-horizontal > .swiper-pagination-bullets,
+.header .swiper-pagination-custom,
+.header .swiper-pagination-fraction {
+  bottom: 39px;
+}
+.header .carousel-area {
+  height: 900px;
+}
+.header .carousel-area .img1 {
+  background: url(../imgs/banner-mote.png) 50% 0 no-repeat;
+}
+.header .carousel-area .img2 {
+  background: url(../imgs/banner-shuHuaZhan.png) 50% 0 no-repeat;
+}
+.header .carousel-area .img3 {
+  background: url(../imgs/banner-niuKou.png) 50% 0 no-repeat;
+}
+.header .carousel-img {
+  height: 900px;
+  width: 100%;
+  position: absolute;
+  z-index: auto;
+}
+.header .carousel-spot > ul {
+  position: absolute;
+  left: 50%;
+  bottom: 39px;
+  transform: translateX(-50%);
+}
+.header .carousel-spot li {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #F8F5EE;
+  float: left;
+}
+.header .carousel-spot li + li {
+  margin-left: 47px;
+}
+.gallery1 img,
+.gallery2 img,
+.gallery3 img {
+  vertical-align: middle;
+}
+.gallery1 {
+  margin-bottom: 21px;
+}
+.gallery1 .draw {
+  float: left;
+  overflow: hidden;
+}
+.gallery1 div.draw + div {
+  margin-left: 22px;
+}
+.gallery2 {
+  margin-bottom: 27px;
+}
+.gallery2 .draw {
+  float: left;
+  overflow: hidden;
+}
+.gallery2 div.draw + div {
+  margin-left: 26px;
+}
+.gallery3 {
+  margin-bottom: 225px;
+}
+.gallery3 > div {
+  overflow: hidden;
+}

@@ -1,0 +1,73 @@
+@width-1200:1200px;
+@font-12:12px;
+@font-14:14px;
+@font-16:16px;
+@font-18:18px;
+@font-20:20px;
+@font-22:22px;
+@font-24:24px;
+h1,h2,h3,h4,h5,h6,p,body,ul,dl,dd,ol{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+body{
+  min-width:1200px;
+}
+a{
+  text-decoration: none;
+}
+.clear:after{
+  display: block;
+  content:"";
+  clear:both;
+}
+.area{
+  width:1200px;
+  margin:0 auto;
+}
+.header{
+  position:relative;
+  background-color:#fff;
+
+}
+.logo{
+  float:left;
+  margin-left:35px;
+  height:140px;
+  line-height:140px;
+  img{
+    vertical-align: middle;
+  }
+}
+.nav-label{
+  //height:900px;
+  position:relative;
+  ul{
+    float:right;
+    position:relative;
+    z-index:100;
+    li{
+      float:left;
+      width:179px;
+      height:140px;
+      line-height:140px;
+      text-align:center;
+    }
+  }
+  a{
+    font-size:@font-18;
+    color:#000;
+  }
+  li.active{
+    background-color:#E60012;
+    a{
+      color:#fefefe;
+    }
+  }
+}
+.bg-hongniukou{
+  height:760px;
+  background:url(../imgs/banner-hongniukou.png) center no-repeat;
+  background-size:1920px 760px;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>客服中心</title>
+    <style>
+		*{ margin: 0; padding: 0; font-family: "Microsoft YaHei", "微软雅黑", arial, sans-serif}
+		a{ color: #fff; text-decoration: none}
+   	    /*error404*/
+		.errorNav{
+		    width: 100%;
+		    height: 84px;
+		    background-color: #33a4ea;
+		}
+		.errorNavContent{
+		    width: 1200px;
+		    margin: 0 auto;
+		    padding-top: 13px;
+		}
+		.errorLogo{
+		    float: left;
+		    width: 404px;
+		    height: 57px;
+		    background: url("/php/public/admin/images/logoText.png") no-repeat;
+		
+		}
+		.errorhomePage{
+		    float: right;
+		    width: 75px;
+		    height: 30px;
+		    line-height: 30px;
+		    text-align: center;
+		    color: #fff;
+		    display: inline-block;
+		    border: 1px solid #67baee;
+		    border-radius: 3px;
+		    margin-top: 12px;
+		}
+		.errorhomePage:hover{
+		    color: #fff;
+		}
+		.errorContentImg{
+		    width: 540px;
+		    height: 345px;
+		    background: url("/php/public/admin/images/error404.png") no-repeat;
+		    margin:  0  auto;
+		    margin-top: 180px;
+		}
+		.errorClick{
+		    width: 300px;
+		    margin: 0 auto;
+		    height: 33px;
+		    margin-top: 30px;
+		    text-align: center;
+		}
+		.previousPage{
+		    display: inline-block;
+		    width: 96px;
+		    height: 33px;
+		    background: url("/php/public/admin/images/previousPage.png") no-repeat;
+		    margin-right:33px;
+		    cursor: pointer;
+		}
+		.returnHomePage{
+		    display: inline-block;
+		    width: 121px;
+		    height: 33px;
+		    background: url("/php/public/admin/images/returnHomePage.png") no-repeat;
+		    cursor: pointer;
+		}
+		.errorFoot{
+		    width: 220px ;
+		    margin: 0 auto;
+		    text-align: center;
+		    margin-top: 8%;
+		}
+		
+		.errorFoot>p{
+		    font-size: 16px;
+		}
+    </style>
+</head>
+<body>
+    <!-- 404直接在主窗口里面-->
+    <div class="errorContent">
+        <div class="errorContentImg">
+        </div>
+        <div class="errorClick">
+            <a href="javascript:void(0);" onclick="javascript:fun();" class="previousPage"></a>
+            <a href="http://www.71chat.com" class="returnHomePage"></a>
+        </div>
+    </div>
+    <div class="errorFoot">
+        <p>联系邮箱：kfz@13322.com</p>
+    </div>
+    <script type="text/javascript">
+	  function fun(){
+	      history.go(-1);
+	  }
+    </script>
+</body>
+</html>

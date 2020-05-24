@@ -1,0 +1,106 @@
+<div class="comment_list" ng-controller="com_ctrl"> 
+
+ <input type="hidden" id="codeid" value="{$code.confcodeid}">
+    <h1 class="fw_b">数据表配置</h1>
+   
+    <ul class="menu_title" >
+        <li class="active" >配置列表</li> 
+    </ul>
+
+    <div class="comment_list_all  verified_list">
+       <div ng-if="tapshow==0"  class="search_box">
+            <div class="result_opt">
+            <a  editstatus="{{editstatus==1?0:1}}" class="pass_opt opt_active" ng-bind="editstatus==1?'取消':'编辑'"></a> 
+
+             <a yseditadd="system_conf_editadd" tapshow="1" class="pass_opt opt_active">添加表配置</a>
+            </div>
+        </div>
+        <div class="tab-content">
+            <!--  模板列表  -->
+            <table  ng-if="tapshow==0" class="table_box view_list" >
+                <thead>
+                    <tr>
+                        <td style="width:10%;">排序</td>
+                        <td style="width:11%;">表主键ID</td>
+                        <td style="width:20%;">表名</td>
+                        <td style="width:20%;">表加密序号</td>
+                        <td style="width:15%">表加密串</td>
+                        <td style="width:15%">表关键字</td>
+                        <td style="width:13%">仅超级管理员可用</td>
+                        <td style="width:13%">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-if="value.isdel!=1" ng-repeat="(key, value) in system_conf_select.data">
+                        <td>
+                            <span  ng-if="editstatus==0" ng-bind="value.listorder"></span>
+                            <input ysupdateone="com_update.params.listorder" type="text" class="ip_1 w_60" value="{{value.listorder}}" ng-if="editstatus==1">
+                        </td>
+                        <td >
+                             <span  ng-if="editstatus==0" ng-bind="value.tbid"></span>
+                            <input ysupdateone="com_update.params.tbid" type="text" class="ip_1 w_60" value="{{value.tbid}}" ng-if="editstatus==1">
+                        </td>
+                        <td>
+                            <span  ng-if="editstatus==0" ng-bind="value.tbname"></span>
+                            <input ysupdateone="com_update.params.tbname" type="text" class="ip_1 w_100" value="{{value.tbname}}" ng-if="editstatus==1">
+                        </td>
+                        <td>
+                             <span  ng-if="editstatus==0" ng-bind="value.tbnum"></span>
+                            <input ysupdateone="com_update.params.tbnum" type="text" class="ip_1 w_60" value="{{value.tbnum}}" ng-if="editstatus==1">
+                        </td>
+                        <td >
+                             <span  ng-if="editstatus==0" ng-bind="value.tbcodestr"></span>
+                            <input ysupdateone="com_update.params.tbcodestr" type="text" class="ip_1 w_150" value="{{value.tbcodestr}}" ng-if="editstatus==1">
+                        </td>
+                        <td >
+                             <span  ng-if="editstatus==0" ng-bind="value.tbkeywords"></span>
+                            <input ysupdateone="com_update.params.tbkeywords" type="text" class="ip_1 w_150" value="{{value.tbkeywords}}" ng-if="editstatus==1">
+                        </td>
+                        <td>
+                             <span  ng-if="editstatus==0" ng-bind="value.adminonly"></span>
+                            <input ysupdateone="com_update.params.adminonly" type="text" class="ip_1 w_60" value="{{value.adminonly}}" ng-if="editstatus==1">
+                        </td>
+
+                        <td>
+                            <div class="comment_option" style="padding:0px 23px;">
+                                <a  yseditadd="system_conf_editadd" tapshow="1">
+                                    <span key="navid" style="width:30px;">修改</span>
+                                </a>
+                                <a  theid="codeid" comdelone="system_conf_del">
+                                    <span key="navid" style="width:30px;">删除</span>
+                                </a>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 模板列表 -->
+
+        <!-- 新增模板 -->
+        <div  ng-if="tapshow==1" style="margin-top:42px;">
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">表名：</label>
+                <input type="text" ng-model="system_conf_editadd.params.tbname" name="searchCom" class="set_input" placeholder="表名"></div>
+
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">表主键ID：</label>
+                <input type="text"  ng-model="system_conf_editadd.params.tbid" name="searchCom" class="set_input" placeholder="表主键ID"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">表加密序号：</label>
+                <input type="text" ng-model="system_conf_editadd.params.tbnum" name="searchCom" class="set_input" placeholder="表加密序号"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">表加密字符串：</label>
+                <input type="text" name="" ng-model="system_conf_editadd.params.tbcodestr" class="set_input" placeholder="表加密字符串"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">排序：</label>
+                <input type="text" ng-model="system_conf_editadd.params.listorder" name="searchCom" class="set_input" placeholder="排序"></div>
+           
+          <div style="margin-left: 177px;">
+                <input comtime="system_conf_editadd" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增模板 --> </div>
+
+</div>
+</div>

@@ -1,0 +1,113 @@
+<div class="comment_list" ng-controller="com_ctrl">
+ <input type="hidden" id="codeid" value="{$code.systemmenucodeid}">
+    <h1 class="fw_b">后台菜单</h1>
+    <ul class="menu_title" id="myTab">
+        <li class="active" id="btnvlst" >菜单列表</li> 
+    </ul>
+
+    <div class="comment_list_all  verified_list">
+            <div ng-if="tapshow==0"  class="search_box">
+            <div class="result_opt">
+             <a  yseditadd="system_menu_editadd" tapshow="1" class="pass_opt opt_active">添加菜单</a> 
+            </div>
+        </div>
+                    
+         <!-- 菜单列表 -->
+                    <table ng-if="tapshow==0" class="table_box view_list" >
+                        <thead>
+                        <tr>
+                            <td style="width:100px;">排序</td>
+                            <td style="width:60px;text-align: left;">ID</td>
+                            <td style="text-align: left;">菜单名称</td> 
+                            <td style="width:26%;">菜单编辑</td> 
+                            <td style="width:150px;">路径</td> 
+                            <td style="width:150px;">图标</td> 
+                            <td style="width: 15%">操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="value.isdel!=1" ng-repeat="(key, value) in system_menu_select.data"> 
+                            <td class="t_c"><input ysupdateone="com_update.params.listorder" style="width:50px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.listorder}}" placeholder=""> </td>
+                            <td style="text-align: left;" ng-bind="value.id"> </td>  
+                            <td  style="text-align: left;" ng-bind-html="value.namestr|htmlfil">  </td>
+                            <td>
+                                 <input ysupdateone="com_update.params.name" style="width:100px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.name}}" placeholder="">
+                            </td>
+                             <td  style="text-align: left;" > <input ysupdateone="com_update.params.menu_url" style="width:150px;text-align:center;height: 26px;margin: 0 4px;" type="text" name="" value="{{value.menu_url}}" placeholder="">  </td>
+                             <td  style="text-align: left;" > <input ysupdateone="com_update.params.icon" style="width:100px;text-align:center;height: 26px;margin: 0 4px;margin-left: 28px" type="text" name="" value="{{value.icon}}" placeholder=""> </td>
+                            
+                            <td>
+
+             <div class="comment_option">
+             <span  ysaddpid="system_menu_editadd" tapshow="1" class=" hand">新增子菜单</span>
+             <span  yseditadd="system_menu_editadd" tapshow="1" class="ml_10 hand">编辑</span>
+             <span class="ml_10 hand" comdelone="system_menu_del">删除</span></div>
+
+                            </td>
+                        </tr>
+                    
+                        </tbody>
+                        
+                    </table>
+          <!-- 菜单列表 -->      
+            
+                
+
+        <!-- 新增菜单 -->
+        <div ng-if="tapshow==1" style="margin-top:42px;">
+                   <div class="site_name site_info">
+                        <label class="col-md-2 control-label">上级菜单：</label>
+                        <select ysselect="system_menu_editadd.params.pid" class="addnavv">
+ <option value="0">请选择父级</option>
+                       
+<option ng-if="value.isdel!=1" value="{{value.id}}"   ng-selected="{{system_menu_editadd.params.pid==value.id}}" ng-repeat="(key, value) in system_menu_select.data" ng-bind-html="value.namelip|htmlfil"></option>
+                           
+                        </select>
+                    </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>菜单名称：</label>
+                <input type="text" ng-model="system_menu_editadd.params.name" class="set_input" placeholder="菜单名称">
+                <span style="color:#777777" class="inpexp">(只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label"><span style="color:red">*</span>链接地址：</label>
+                <input type="text" ng-model="system_menu_editadd.params.menu_url" name="" class="set_input" placeholder="链接地址">
+                <span class="inpexp" style="color:#777777">(顶级栏目直接填写链接地址即可，例如:#/Index/index 即为System模块下Index控制器下的index方法)</span>
+            </div>
+             <div class="site_name site_info">
+                <label class="col-md-2 control-label">图标类名：</label>
+                <input ng-model="system_menu_editadd.params.icon" type="text" name="" class="set_input" placeholder="方法名">
+                <span style="color:#777777" class="inpexp">(后台左侧菜单的图标，例如：填写内容如 fa fa-icon)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">显示/隐藏：</label>
+                <ul class="review_info">
+                    <li>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" ng-model="system_menu_editadd.params.visible" id="extract" value="1" name="abc" checked="">
+                            <label for="extract"> 显示 </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio radio-inline">
+                            <input type="radio" ng-model="system_menu_editadd.params.visible" id="extract1" value="0" name="abc" checked="">
+                            <label for="extract1"> 隐藏 </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-left: 177px;">
+                <input comtime="system_menu_editadd" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增菜单 -->
+
+
+
+
+            </div>
+        
+    </div>
+ 
+ 

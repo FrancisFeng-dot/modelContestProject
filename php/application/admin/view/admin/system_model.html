@@ -1,0 +1,194 @@
+<div class="comment_list" ng-controller="com_ctrl">
+    <h1 class="fw_b">模型管理</h1>
+    <ul class="menu_title">
+        <li  ng-if="tapshow==0||tapshow==1" class="active" id="btnvlst">模型列表</li>
+        <li  ng-if="tapshow==2||tapshow==3" class="active"  id="btadnv">字段列表</li>
+    </ul>
+
+    <div class="comment_list_all  verified_list">
+            <div  class="search_box" id="searchadd">
+               
+                    <div ng-if="tapshow==0" class="result_opt" style="float:right;">
+                        <a class="pass_opt opt_active"  yseditadd="system_model_editadd" tapshow="1" >新增模型</a>
+                    </div>
+                     <div ng-if="tapshow==2" class="result_opt" style="float:right;">
+                     <a class="pass_opt opt_active"  yseditadd="system_model_editadd" tapshow="0" >返回</a>
+                        <a class="pass_opt opt_active"  yseditadd="system_model_chareditadd" tapshow="3" >新增字段</a>
+                    </div>
+                   
+
+            </div>
+            <div class="tab-content">
+                <!-- 模型列表 -->
+        <table  ng-if="tapshow==0" id="mdlist" class="table_box view_list" >
+            <thead>
+                <tr> 
+                    <td style="width:5%;">ID</td>
+                    <td style="width:12%;">模型名称</td>
+                    <td style="width:30%;">模型表名</td>
+                    <td style="width:18%;">模型表注释</td>
+                    <td style="width:10%;">记录数</td>
+                    <td style="width:10%;">数据量</td>
+                    <td style="width: 20%">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="value.isdel!=1" ng-repeat="(key, value) in system_model_select.data">
+                    <td class="t_c" ng-bind="key+1"></td>
+                    <td class="t_l" ng-bind="value.comment"></td>
+                    <td class="t_l" ng-bind="value.name"></td>
+                    <td class="t_l" ng-bind="value.comment"></td>
+                    <td class="t_l" ng-bind="value.rows"></td>
+                    <td class="t_l" ng-bind="value.data_length"></td>
+                    <td>
+                        <div class="comment_option">
+                            <div class="comment_option"> 
+                            <a ystaprun="system_model_charselect.params.name" tap="2" ><span>字段管理</span></a> 
+                            <a  comdelone="system_model_del" theid="name" tip="数据表将被删除，只能从备份中恢复，确定要删除数据表么？"><span  style="margin-left: 5px">删除</span></a> 
+                            <a  comaskrun="system_model_clean"  theid="name" tip="数据表将被清空，只能从备份中恢复，确定要清空数据表么？"><span  style="margin-left: 5px">清空</span></a> 
+ 
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 模型列表 -->
+
+        <!-- 新增模型 -->
+        <div ng-if="tapshow==1">
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">数据表名：</label>
+                <input type="text" ng-model="system_model_editadd.params.tbname" class="set_input" placeholder="数据表名">
+                <span class="inpexp">(将会在数据库中建立以ys_mudule_前缀的数据表，注意请勿和已有模型表重复，以下输入<br>不用加ys_mudule)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">表说明：</label>
+                <input type="text" ng-model="system_model_editadd.params.tbdesc" class="set_input" placeholder="表说明">
+                <span class="inpexp">(在数据表中得注释)</span>
+            </div>
+            <div style="margin-left: 177px;">
+                <input comtime="system_model_editadd" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增模型 -->
+
+         <!-- 字段列表 -->
+        <table  ng-if="tapshow==2"   class="table_box view_list" >
+            <thead>
+                <tr> 
+                    <td style="width:10%">ID</td>
+                    <td style="width:13%;">字段名</td>
+                    <td style="width:13%">字段备注</td>
+                    <td style="width:10%">类型</td>
+                 <!--    <td style="width:15%">字段提示</td>
+                    <td style="width: 10%">是否必填</td>
+                    <td style="width:10%">是否唯一</td> -->
+                    <td style="width:10%">默认值</td>
+                    <td style="width: 20%">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-if="value.isdel!=1" ng-repeat="(key, value) in system_model_charselect.data">
+                    <td ng-bind="key+1"></td> 
+                    
+                    <td ng-bind="value.Field"></td>
+                    <td ng-bind="value.Comment"></td>
+                    <td ng-bind="value.Type"></td> 
+                    <td ng-bind="value.Default"></td>
+                    
+                    <td>
+                        <div class="comment_option"> 
+                          <!--   <a yseditadd="system_model_chareditadd" tapshow="3"><span  style="margin-left: 5px">修改</span></a> -->
+                            <a comdelone="system_model_chardel" theid="Field"><span  style="margin-left: 5px">删除</span></a>
+                           
+                        
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 字段列表 -->
+
+        <!-- 新增字段 -->
+        <div  ng-if="tapshow==3">
+                  
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">字段名：</label>
+                <input type="text"  ng-model="system_model_chareditadd.params.Field" class="set_input" placeholder="">
+                <span style="color:#777777">(只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">字段别名：</label>
+                <input type="text"  ng-model="system_model_chareditadd.params.Comment" class="set_input" placeholder="">
+                <span style="color:#777777">(例如：文章标题)</span>
+            </div>
+             <div class="site_name site_info">
+                <label class="col-md-2 control-label">默认值：</label>
+                <input type="text"  ng-model="system_model_chareditadd.params.Default" class="set_input" placeholder="">
+                <span style="color:#777777">(复选框如有多个默认选中，请用英文逗号隔开,单选框和下拉框直接填写默认选中的值即可)</span>
+            </div>
+             <div class="site_name site_info">
+                        <label class="col-md-2 control-label">字段类型：</label>
+                        <select name="attr" ysselect="system_model_chareditadd.params.type" class="addnavv">
+                            <option value="input">单行文本</option>
+                            <option value="textarea">多行文本</option>
+                            <option value="cleareditor">简洁编辑器</option>
+                            <option value="editor">标准编辑器</option>
+                            <option value="radio">单选框</option>
+                            <option value="checkbox">复选框</option>
+                            <option value="select">下拉单选</option>
+                          <!--   <option value="image">单图</option>
+                            <option value="imagelist">多图</option>
+                            <option value="file">单文件</option>
+                            <option value="fileslist">多文件</option> -->
+                            <option value="datetime">日期时间</option>
+                        </select>
+                         
+                    </div>
+            <!-- <div class="site_name site_info">
+                <label class="col-md-2 control-label">字段提示：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(例如：在这个地方显示的灰色提示文字)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">默认值：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(复选框如有多个默认选中，请用英文逗号隔开,单选框和下拉框直接填写默认选中的值即可)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">字符长度控制：</label>
+                <input type="text" name="" class="set_input" placeholder="">
+                <span style="color:#777777">(例如：5-15即最短5位，最大15位)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">数据验证正则：</label>
+                <select class="addnavv" style="width:100px">
+                    <option>无</option>
+                    <option>手机号</option>
+                    <option>邮箱</option>
+                    
+                </select>
+                <input type="text" name="" class="set_input" placeholder="" style="width: 246px">
+                <span style="color:#777777">(可选择也可自定义填写)</span>
+            </div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">验证不通<br>过提示信息：</label>
+                <input type="text" name="" class="set_input" placeholder=""> 
+            </div> -->
+            <div style="margin-left: 177px;">
+                <input comtime="system_model_chareditadd" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="2" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增字段 -->
+
+
+
+
+            </div>
+        
+    </div>
+</div>
+ 

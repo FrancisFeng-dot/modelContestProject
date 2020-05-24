@@ -1,0 +1,133 @@
+<div class="comment_list" ng-controller="com_ctrl">
+<input type="hidden" id="codeid" value="{$code.auditioncodeid}">
+    <h1 class="fw_b">报名统计</h1>
+    <ul class="menu_title" id="myTab">
+        <li class="active" id="btnvlst" data-toggle="tab">报名列表</li>
+    </ul>
+    <div class="comment_list_all  verified_list">
+        <div class="search_box">
+            <div class="result_opt">
+                <div ng-if="tapshow==0" class="search_opt">
+                    <input type="text" id="searchInput" ng-model="user_log_select.params.keyword" class="search_file" name="searchCom" placeholder="请输入搜索词">
+                    <span comtime="user_log_select">搜索</span>
+                </div>
+
+                 <div  ng-if="tapshow==1" class="search_opt">
+                     <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+                </div>
+
+                
+            </div>
+        </div>
+            <div class="tab-content" ng-show="tapshow==0">
+                <!--  登录列表  -->
+                <table id="nvlst" class="table_box view_list">
+                    <thead>
+                        <tr>  
+                            <td style="width:5%;">编号</td>
+                            <td style="width:6%;">姓名</td>
+                            <td style="width:5%;">模特类型</td>
+                            <td style="width:6%;">出生日期</td>
+                            <td style="width:6%;">电话</td>
+                            <td style="width:6%;">邮箱</td>
+                            <td style="width:6%;">地区</td>
+                            <td style="width:5%;">海选类型</td>
+                            <td style="width:6%;">学校/单位</td>
+                            <td style="width:9%;">个人简介</td>
+                            <td style="width:8%;">报名时间</td>
+                            <td style="width:9%;">照片</td>
+                            <td style="width:4%;">短信发送次数</td>
+                            <td style="width:6%;">操作</td>
+                        </tr>
+                    </thead>    
+                    <tbody>
+                        <tr ng-repeat="(key, value) in user_log_select.data.datalist">
+                            <td ng-bind="value.username"></td>
+                            <td ng-bind="value.modelname"></td>
+                            <td>
+                                <span ng-if="value.modeltype==1">职业模特</span>
+                                <span ng-if="value.modeltype==2">平面模特</span>
+                            </td>
+                            <td ng-bind="value.birthday"></td>
+                            <td ng-bind="value.telephone"></td> 
+                            <td ng-bind="value.email"></td>
+                            <td ng-bind="value.city"></td> 
+                            <td>
+                                <span ng-if="value.audition==1">网络海选</span>
+                                <span ng-if="value.audition==2">现场海选</span>
+                            </td>
+                            <td ng-bind="value.company"></td> 
+                            <td ng-bind="value.description" class="textover3" style="height:99px;"></td>
+                            <td ng-bind="value.createtime"></td>
+                            <td>
+                                <a tap="1" ystaprun="com_detail.params.id"><span>查看详情</span></a>
+                            </td>
+                            <td ng-bind="value.hassend"></td>
+                            <td>
+                                <a><span yseditadd="user_log_editadd">发送短信</span></a>
+                                <a><span comdelone="user_log_del">删除</span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 登录列表 -->
+<div id="page" class="t_c" style="text-align: center;margin-top: 25px;">
+        </div></div>
+                <!--家长查看详情-->
+            <div style="margin-top:36px;" ng-show="tapshow==1">
+                <!--  <div class="site_name site_info">
+                   <label class="col-md-2 control-label">昵称：</label>
+                   <span ng-bind="com_detail.params.nickname" class="set_input"></span>
+                 </div>
+                    <div class="site_name site_info">
+                   <label class="col-md-2 control-label">地区：</label>
+                   <span ng-bind="com_detail.params.city" type="text" name="searchCom" class="set_input"></span>
+                 </div> -->
+                 <div class="site_name site_info">
+                   <label class="col-md-2 control-label">模特照片：</label>
+                   <div class="col-md-1" >
+                  <img ng-repeat="(key, value) in com_detail.data.imgurlarr" style="max-width: 800px;margin-bottom: 30px;" ng-src="/php/upload/{{value.img}}"   class="ng-binding">
+                   </div>
+                 </div>
+                 <div style="clear: both;"></div>
+                 <!-- <div class="site_name site_info">
+                   <label class="col-md-2 control-label">孩子学段：</label>
+                   <span ng-bind="com_detail.params.grade" type="text" name="searchCom" class="set_input"></span>
+                   
+                 </div>
+                 <div class="site_name site_info">
+                   <label class="col-md-2 control-label">手机号：</label>
+                   <span ng-bind="com_detail.params.phone" type="text" name="searchCom" class="set_input"></span>
+                   </div>
+                  <div class="site_name site_info">
+                   <label class="col-md-2 control-label">孩子学校：</label>
+                   <span ng-bind="com_detail.params.school" type="text" name="searchCom" class="set_input"></span>
+                 </div> -->
+               <!--   <div style="margin-left: 177px;">
+                <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+            </div>   -->
+              </div>
+          <!--家长查看详情-->
+
+        
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $(function(){
+            $("#btnvlst").click(function(){
+                $("#nvlst").show();
+                $("#adnv").hide();
+            });
+             $("#btadnv").click(function(){
+                $("#nvlst").hide();
+                $("#adnv").show();
+            });
+
+        });
+
+    });
+
+</script>

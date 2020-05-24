@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+     <meta name="description" content="第十三届中国超级模特大赛">
+  <meta name="Keywords" content="模特大赛,第十三届"/>
+  <meta name="sharecontent" data-msg-img="http://www.hnk123.cn/img/hnklogo.jpg" data-msg-title="第十三届中国超级模特大赛" data-msg-content="第十三届中国超级模特大赛" data-msg-callBack="" data-line-img="http://www.hnk123.cn/img/hnklogo.jpg" data-line-title="第十三届中国超级模特大赛" data-line-callBack=""/>
+    <!--<link rel="stylesheet" href="/css/mobile_device.css">-->
+    <!--<link rel="stylesheet" href="/css/pc_device.css">-->
+    <title>第十三届中国超级模特大赛</title>
+    <script src="/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="/js/2.2/skin/layer.css">
+    <script src="/js/2.2/layer.js" type="text/javascript"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/webuploader.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+      $(function(){
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: '{$signPackage.appId}', // 必填，公众号的唯一标识
+                timestamp:'{$signPackage.timestamp}', // 必填，生成签名的时间戳
+                nonceStr: '{$signPackage.nonceStr}', // 必填，生成签名的随机串
+                signature: '{$signPackage.signature}',// 必填，签名，见附录1
+                jsapi_ticket: '{$signPackage.jsapi_ticket}',// 必填
+                jsApiList: [
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo'
+                ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+    wx.ready(function () {
+        wx.checkJsApi({
+            jsApiList: [
+                'getNetworkType',
+                'previewImage',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo'
+            ],
+            success: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '{$news.Title}',
+            link: '{$news.Url}',
+            imgUrl: '{$news.PicUrl}',
+            trigger: function (res) {
+                // alert('用户点击分享到朋友圈1');
+            },
+            success: function (res) {
+                // alert('已分享1');
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '{$news.Title}',
+            desc: '{$news.Description}',
+            link: '{$news.Url}',
+            imgUrl: '{$news.PicUrl}',
+            trigger: function (res) {
+                // alert('用户点击分享到朋友圈2');
+            },
+            success: function (res) {
+                // alert('已分享2');
+            }
+        });
+        wx.onMenuShareQQ({
+            title: '{$news.Title}',
+            desc: '{$news.Description}',
+            link: '{$news.Url}',
+            imgUrl: '{$news.PicUrl}',
+            trigger: function (res) {
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                // alert('已分享3');
+            }
+        });
+        wx.onMenuShareWeibo({
+            title: '{$news.Title}',
+            desc: '{$news.Description}',
+            link: '{$news.Url}',
+            imgUrl: '{$news.PicUrl}',
+            trigger: function (res) {
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                // alert('已分享4');
+            }
+        });
+    });
+     });
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <!-- 封面 -->
+    <section id="pageFirst">
+        <div class="warp section1">
+            <div class="logo-box">
+                <img id="logo" src="/img/logo1.png" alt="">
+                <img id="red" class="pc-hide" src="/img/red.png" alt="">
+            </div>
+
+            <div id="date" class="mobile-hide">
+                <img class="date opacity0" src="/img/date.png" alt=""><br>
+                <img class="pc_mote opacity0" src="/img/mote123.png" alt="">
+            </div>
+            <div id="mote" class="pc-hide opacity0">
+                <img src="/img/mote123.png" alt="">
+            </div>
+            <div id="mote-info">
+                <img class="pc-hide opacity0" src="/img/mode-info.png" alt="">
+                <img class="mobile-hide opacity0" src="/img/pc_info2.png" alt="">
+                <div class="mobile-hide model1">
+                  <p style="width: 28vw;
+    font-size: 2rem;
+    background: #fff;
+    font-weight: 700;
+    margin: 0 auto;
+    ">模特奖励</p>
+                  <div style="width: 70vw;
+    margin: 0px auto;position: relative;">
+    <div style="border-bottom: 1px solid #949494;
+    position: absolute;
+    top: -9px;
+    width: 100%;
+    z-index: -1;"> </div>
+    </div>
+                   </div>
+                <div class="mt5 pc-hide"></div>
+                <div class="mobile-hide opacity0">
+                    <p class="mt5">第一名：168000元（现金+礼品）</p>
+                    <p>第二名：108000元（现金+礼品）</p>
+                    <p>第三名：68000元（现金+礼品）</p>
+                    <p>第四名：38000元（现金+礼品）</p>
+                    <p>第五名：18000元（现金+礼品）</p>
+                    <p class="">前20名参加广东省赛区及北京总决赛</p>
+                    <p>全国总冠军参加国际赛事成为红纽扣基金形象大使</p>
+                    <p>参加与中央电视台节目录制电影红纽扣特聘演员</p>
+                    <div>
+                        <p class="f-small">获得以下单位的录取资格：
+                            <span>亚洲模特协会中国委员会</span>
+                            <span>中关村环球时尚创意产业联盟</span>
+                            <span>亚洲新闻周刊</span>
+                            <span>亚洲偶像学院</span>
+                            <span>德州阿丁秀模特学校</span>
+                            <span>阿丁秀国际文化传媒（北京）文化传媒公司</span>
+                            <span>广东上海丝路文化发展有限公司</span>
+                            <span>红人盛典（北京）文化传媒有限公司</span>
+                            <span>中国华娱传媒集团有限公司</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="img12">
+                <a href="/index.html"><img src="/img/return.png" alt=""></a>
+            </div>
+        </div>
+    </section>
+    <section class="pc-hide">
+        <div class="warp section2">
+            <img id="img1" class="opacity0" src="/img/111.png" alt=""><br>
+            <img id="img2" class="opacity0" src="/img/2221.png" alt="">
+            <div id='all' class="opacity0">
+                <p>第一名：168000元（现金+礼品）</p>
+                <p>第二名：108000元（现金+礼品）</p>
+                <p>第三名：68000元（现金+礼品）</p>
+                <p>第四名：38000元（现金+礼品）</p>
+                <p>第五名：18000元（现金+礼品）</p>
+                <p class="mt_12">前20名参加广东省赛区及北京总决赛</p>
+                <p>全国总冠军参加国际赛事成为红纽扣基金形象大使</p>
+                <p>参加与中央电视台节目录制电影红纽扣特聘演员</p>
+                <div class="mt_12">
+                    <p>获得以下单位的录取资格：</p>
+                    <p>亚洲模特协会中国委员会</p>
+                    <p>中关村环球时尚创意产业联盟</p>
+                    <p>亚洲新闻周刊</p>
+                    <p>亚洲偶像学院</p>
+                    <p>德州阿丁秀模特学校</p>
+                    <p>阿丁秀国际文化传媒（北京）文化传媒公司</p>
+                    <p>广东上海丝路文化发展有限公司</p>
+                    <p>红人盛典（北京）文化传媒有限公司</p>
+                    <p>中国华娱传媒集团有限公司</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 报名信息 -->
+    <section>
+        <div class="mote-title">
+            第十三届中国超模大赛<br>
+            深圳分赛区报名通道
+        </div>
+        <from>
+            <div class="form">
+
+                <div class="form-group name">
+                    <label for="name" class="vam">姓名</label>
+                    <div>
+                        <input type="text" id="name" placeholder="请输入您的姓名">
+                    </div>
+                    <div class="mobile-hide info-tips info-tips1"></div>
+                </div>
+                <div class="form-group modelbox">
+                    <label for="model">模特类别</label>
+                    <div class="audition" >
+                        <span>
+                            <input type="radio" name="model" value="1" id="professional" class="model">
+                            <label for="professional"></label>
+                            <label for="professional" class="status">职业模特</label>
+                        </span>
+                        <span>
+                            <input type="radio" name="model" value="2" id="plane" class="model">
+                            <label for="plane"></label>
+                            <label for="plane" class="status">平面模特</label>
+                        </span>
+                        <span class="chose mobile-hide">请选择模特类别</span>
+                    </div>
+                    <div class="mobile-hide info-tips info-tips2"></div>
+                </div>
+                <div class="form-group birth">
+                    <label for="birth">出生日期</label>
+                    <div>
+                        <input type="text" id="birth" placeholder="请输入您的生日，例：19920808">
+                    </div>
+                    <div class="mobile-hide info-tips info-tips3"></div>
+                </div>
+                <div class="form-group telephone">
+                    <label for="telephone">电话</label>
+                    <div>
+                        <input type="tel" id="telephone" placeholder="请输入您的电话">
+                    </div>
+                    <div class="mobile-hide info-tips info-tips4"></div>
+                </div>
+                <div class="form-group verificate">
+                    <label for="verificate">验证码</label>
+                    <div class="verificate2">
+                        <div class="verificate3">
+                            <input type="text" id="verificate" placeholder="请输入您的短信验证码">
+                        </div>
+                        <div class="verificate4 verificate5">
+                            <div style="text-align: center;">
+                                <label id="vericode">获取验证码</label>
+                                <label id="vericode2"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-hide info-tips info-tips10"></div>
+                </div>
+                <div class="form-group email">
+                    <label for="email">邮箱</label>
+                    <div>
+                        <input type="email" id="email" placeholder="请输入您的邮箱">
+                    </div>
+                    <div class="mobile-hide info-tips info-tips5"></div>
+                </div>
+                <div class="form-group address baseline">
+                    <label for="address" class="diqu1">地区</label>
+                    <div class="audition"  style="min-height: 12em">
+                        <input type="text" id="address" placeholder="请输入您的地区（例：广东省深圳市）">
+                        <div>
+                            <span class="mr10">
+                                <input type="radio" name="address" value="1" id="onLine" class="model">
+                                <label for="onLine"></label>
+                                <label for="onLine" class="status">线上(网络海选)</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="address" value="2" id="underLine" class="model">
+                                <label for="underLine"></label>
+                                <label for="underLine" class="status">线下(现场海选)</label>
+                            </span>
+
+                        </div>
+                        <p class="tips">注:广东省外可选择线上或线下，广东省内必须选择线下；线上在规定时间内参与网络直播平台海选，线下为在规定时间内到达深圳现场海选</p>
+                    </div>
+                    <div class="mobile-hide info-tips info-tips6"></div>
+
+                </div>
+                <div class="form-group unit">
+                    <label for="unit">学校/单位</label>
+                    <div>
+                        <input type="text" id="unit" placeholder="请输入您的学校或单位名称">
+                    </div>
+                    <div class="mobile-hide info-tips info-tips7"></div>
+                </div>
+                <div class="form-group resume baseline">
+                    <label for="resume">个人简介</label>
+                    <div>
+                        <textarea type="text" rows="4" id="resume" maxlength="30" placeholder="请输入您的简介不超过30个字"></textarea>
+                    </div>
+                    <div class="mobile-hide info-tips info-tips8"></div>
+                </div>
+                <div class="form-group photo">
+                    <label for="photo" class="vat">上传照片</label>
+                    <div>
+                        <div id="uploader" class="wu-example">
+                            <div class="btns">
+                                <div id="picker">选择文件(至少1张，不超过3张)</div>
+                                <!--<button id="ctlBtn" class="btn">在线上传</button>-->
+                            </div>
+                            <!--用来存放文件信息-->
+                            <div id="thelist" class="uploader-list"></div>
+
+                        </div>
+                    </div>
+                    <div class="mobile-hide info-tips info-tips9"></div>
+                </div>
+                <div>
+                    <div class="read">
+                        <div class="checkbox">
+                            <input type="checkbox" id="read">
+                            <label for="read"></label>
+                        </div>
+                        我已阅读，并同意 <a href="">《模特参赛协议》</a></div>
+                    <div class="protocol">
+                        我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意我已阅读，并同意
+                    </div>
+                </div>
+                <div class="submit">
+                    <button id="submit">提交</button>
+                    <!--<div style="color:red;display: inline-block;" class="refermsg"></div>-->
+                    <div class="require pc-hide">
+                        <span>参赛要求:</span>性别：女性；年龄：18-27周岁；身高：162CM至183CM；身体健康，具备良好的艺术素养；普通话流利：遵纪守法，无犯罪记录；报名采取大中专院校，社会团体，模特公司或者相关机关选拔推荐和参赛者个人报名相结合。
+                    </div>
+                </div>
+                <div class="require mobile-hide">
+                    <span>参赛要求:</span>性别：女性；年龄：18-27周岁；身高：162CM至183CM；身体健康，具备良好的艺术素养；普通话流利：遵纪守法，无犯罪记录；报名采取大中专院校，社会团体，模特公司或者相关机关选拔推荐和参赛者个人报名相结合。
+                </div>
+
+                <div style="width: 100%;text-align: center;color: #949494;">
+                  <div>
+                  <p style="width: 28vw;
+    font-size: 16px;
+    background: #f2f2f2;
+    font-weight: 700;
+    margin: 0 auto;
+    ">联系方式</p>
+                  <div style="/*width: 70vw;*/
+    margin: 0px auto;position: relative;">
+    <div style="border-bottom: 1px solid #949494;
+    position: absolute;
+    top: -9px;
+    width: 100%;
+    z-index: -1;
+    margin: auto;
+    left: 0;
+    right: 0;"> </div>
+    </div>
+                   </div>
+                  <div class="lianxi4" style="margin: 0 auto;margin-top: 2vh;">
+                  <p class="lianxi1">深圳赛区组委会</p> 
+                  <p class="lianxi1" style="margin-top:0.1vh; ">深圳市红纽扣文化传媒有限公司</p> 
+                  <p class="lianxi1">杨明玮 13924636111 0755-22956651</p> 
+                  </div>
+                  <div style="margin-top: 1vh;"> <p style="line-height: 5vh;">或者扫码下方二维码</p>
+                  <p style="margin-bottom: 4vh;"><img src="/img/erwei1.png" alt=""></p>
+                  </div>
+                </div>
+            </div>
+        </from>
+    </section>
+    <div class="audio-mute pc-hide"><img src="/img/music.png" alt=""></div>
+    <audio class="pc-hide" preload="auto" loop="" id="myAudio">
+        <source src="/img/bgmusic.mp3" type="audio/mpeg">
+    </audio>
+    <!--<audio class="pc-hide" style="display:block; height: 0" id="bg-music" preload="auto" src="/img/bgmusic.mp3" loop="loop"></audio>-->
+
+
+</div>
+
+<script>
+  function loadCSS() {
+    if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|iOS|iPad|Android|wOSBrowser|BrowserNG|WebOS)/i))) {
+      document.write('<link href="/css/mobile_device.css" rel="stylesheet" type="text/css" media="screen" />');
+      document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+          var audio = document.getElementById('myAudio');
+          audio.play();
+          document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+          }, false);
+        }
+        audioAutoPlay();
+      });
+      function gid (id) {
+        return typeof id == 'string' ? document.querySelector(id) : id;
+      }
+      $(function(){
+        setTimeout(function(){
+          $('.front_load').hide();
+        },1000)
+
+        var myAudio = gid('#myAudio'), $audioMute = $('.audio-mute');
+        // 解决不能循环播放bug
+        myAudio.play();
+        $('body').on("touchstart",function(e){
+          if ( $audioMute.hasClass('on') ) {
+            myAudio.play();
+          }
+        });
+        myAudio.addEventListener('ended', function() {
+          if(!myAudio.loop) {
+            myAudio.play();
+          }
+        });
+        // 静音按钮
+        $('.audio-mute').on('touchstart', function() {
+          if(myAudio.paused) {
+            $(this).find('img')[0].src = '/img/music.png';
+            myAudio.play();
+            audioClick = false;
+            $audioMute.addClass('on');
+          } else {
+            $(this).find('img')[0].src = '/img/music-stop.png';
+            myAudio.pause();
+            audioClick = true;
+            $audioMute.removeClass('on');
+          }
+        });
+      })
+
+      //动画效果
+      function testAnim(x,obj) {
+        obj.removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass();
+        });
+      }
+
+
+      setTimeout(function(){
+        testAnim('fadeInUp',$('#mote'));
+      },500);
+
+      setTimeout(function(){
+        testAnim('fadeInUp',$('#mote-info img:nth-child(1)'));
+      },1500);
+
+
+var toshow = false;
+$(window).scroll(function () {
+  console.log($(window).scrollTop() ,$(window).height());
+      if ($(window).height() - $(window).scrollTop() <450 &&!toshow){
+        toshow = true;
+        function testAnim(x,obj) {
+          obj.removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $(this).removeClass();
+          });
+        }
+        setTimeout(function(){
+          testAnim('fadeInUp',$('#img1'));
+        },500);
+        setTimeout(function(){
+          testAnim('fadeInUp',$('#img2'));
+        },1000);
+        setTimeout(function(){
+          testAnim('fadeInUp',$('#all'));
+        },1500);
+      }
+});
+
+
+    }
+    else {
+      document.write('<link href="/css/pc_device.css" rel="stylesheet" type="text/css" media="screen" />');
+      //动画效果
+      function testAnim(x,obj) {
+        obj.removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass();
+        });
+      }
+
+      setTimeout(function(){
+        testAnim('fadeInUp',$( '.date'));
+      },500);
+      setTimeout(function(){
+        testAnim('fadeInUp',$('.pc_mote'));
+      },1000);
+
+      setTimeout(function(){
+        testAnim('fadeInUp',$('#mote-info img:nth-child(2)'));
+      },1500);
+
+      setTimeout(function(){
+        testAnim('fadeInUp',$('#mote-info>div:last-child'));
+      },2000);
+
+    }
+  }
+  loadCSS();
+
+  var abc = {"data":''};
+  var $list = $('#thelist');
+  //上传图片
+  var uploader = WebUploader.create({
+    // swf文件路径
+    swf:'js/Uploader.swf',
+
+    // 文件接收服务端。
+    server: '/api.php/base/formupload',
+
+    // 选择文件的按钮。可选。
+    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+    pick: '#picker',
+    auto: true,
+    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+    resize: false
+  });
+  // 当有文件被添加进队列的时候
+  uploader.on( 'fileQueued', function( file ) {
+    var l = $('#thelist').find('.item').length;
+    if(l>2){
+      layer.msg('只能上传3张图片');
+      return false;
+    }
+    $list.append( '<div uploadurl="" id="' + file.id + '\" class="item\">' +
+      '<h4 class=\"info\">' + file.name + '</h4>' +
+      '<p class=\"state\">等待上传...</p>' +
+      '</div>' );
+    // $( '#'+file.id ).prev().remove('div');
+  });
+  // 文件上传过程中创建进度条实时显示。
+  uploader.on( 'uploadProgress', function( file, percentage ) {
+    var $li = $( '#'+file.id ),
+      $percent = $li.find('.progress .progress-bar');
+    // 避免重复创建
+    if ( !$percent.length ) {
+      $percent = $('<div class="progress progress-striped active">' +
+        '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+        '</div>' +
+        '</div>').appendTo( $li ).find('.progress-bar');
+    }
+    $li.find('p.state').text('上传中');
+    $percent.css( 'width', percentage * 100 + '%' );
+  });
+  uploader.on( 'uploadSuccess', function( file,response ) {
+    abc=response;
+    $( '#'+file.id ).attr('uploadurl',abc.data.pathurl);
+    $( '#'+file.id ).find('p.state').text('您已上传成功');
+  });
+  uploader.on( 'uploadError', function( file ) {
+    $( '#'+file.id ).find('p.state').text('上传失败，请重新上传');
+  });
+  uploader.on( 'uploadComplete', function( file ) {
+    $( '#'+file.id ).find('.progress').fadeOut();
+  });
+  $(function(){
+    $("#address").keyup(function(){
+      if($('input[id="address"]').val().indexOf("广东",0)>-1){
+        $("#onLine").attr("disabled", true);
+        $("#underLine").prop("checked",true);
+      }else{
+        $("#onLine").attr("disabled", false);
+        $("#underLine").prop("checked",false);
+      }
+    });
+    $('#vericode').click(function(){
+        var senddata2 = {};
+        senddata2.telephone = $('input[id="telephone"]').val();
+        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|iOS|iPad|Android|wOSBrowser|BrowserNG|WebOS)/i))) {
+            //手机号校验
+            var phone = jQuery("#telephone").val();
+            var myreg = /^(((11[0-9]{1})|(13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            //校验手机号
+            if(phone == ''){
+              layer.msg('手机号码不能为空');
+              return false;
+            }else if(phone.length !=11){
+              layer.msg('请输入有效的手机号码');
+              return false;
+            }else if(!myreg.test(phone)){
+              layer.msg('请输入有效的手机号码');
+              return false;
+            }
+        }else{
+            //手机号校验
+            var phone = jQuery("#telephone").val();
+            var myreg = /^(((11[0-9]{1})|(13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            //校验手机号
+           if(phone == ''){
+              $('.telephone input').focus();
+              $('.info-tips4').text('* 手机号码不能为空');
+              return false;
+            }else if(phone.length !=11){
+              $('.telephone input').focus();
+              $('.info-tips4').text('* 请输入有效的手机号码');
+              return false;
+            }else if(!myreg.test(phone)){
+              $('.telephone input').focus();
+              $('.info-tips4').text('* 请输入有效的手机号码');
+              return false;
+            }else{
+              $('.mobile-hide.info-tips4').empty();
+            }
+        }
+        $.ajax({
+        type:"POST",
+        url:"/api.php/auth/send_verify",
+        dataType:"JSON",
+        data:senddata2,
+        success:function(re){
+          if(re.code>0){
+              layer.msg('发送验证码成功');
+              $("#vericode2").text('60秒');
+              var date = 60;
+              $("#vericode").addClass("dpn");
+              $("#vericode2").removeClass("dpn");
+              setInterval(function(){
+                  if(date>0){
+                      date--;
+                      $("#vericode2").text(''+date+'秒');
+                  }else{
+                    return;
+                  }
+              },1000);
+              setTimeout(function(){
+                  $("#vericode").removeClass("dpn");
+                  $("#vericode2").addClass("dpn");
+              },60000);
+          }else{
+            layer.msg(re.msg);
+            return false;
+          }
+        },error:function() {
+          layer.msg('提交超时');
+          return false;
+        }
+      });
+    });
+    $('#submit').click(function(){
+      var senddata = {};
+      senddata.modelname = $('input[id="name"]').val();//模特芳名
+      senddata.modeltype = $('input[name="model"]:checked').val();//模特类型
+      senddata.birthday = $('input[id="birth"]').val(); //生日
+
+      senddata.telephone = $('input[id="telephone"]').val();//联系电话
+      senddata.verificate = $('input[id="verificate"]').val();//验证码
+      senddata.email = $('input[id="email"]').val();//联系邮箱
+      senddata.city = $('input[id="address"]').val();//来自城市
+      senddata.audition = $('input[name="address"]:checked').val();//海选类型
+      senddata.company = $('input[id="unit"]').val();//学校/单位
+      senddata.description = $('textarea[id="resume"]').val();//个人简介
+      // senddata.imgurl = abc.data.pathurl;//照片地址
+var arr = [];
+$('#thelist').find('.item').each(function(index, el) {
+  arr.push($(el).attr('uploadurl'));
+});
+senddata.imgurl =arr.join(';');
+
+
+      if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|iOS|iPad|Android|wOSBrowser|BrowserNG|WebOS)/i))) {
+        if (!senddata.modelname) {layer.msg('请输入姓名');return false;}
+        if (!senddata.modeltype) {layer.msg('请选择模特类型');return false;}
+        var birthday = jQuery("#birth").val();
+        var mybir = /([\d]{4}(((0[13578]|1[02])((0[1-9])|([12][0-9])|(3[01])))|(((0[469])|11)((0[1-9])|([12][1-9])|30))|(02((0[1-9])|(1[0-9])|(2[1-8])))))|((((([02468][048])|([13579][26]))00)|([0-9]{2}(([02468][048])|([13579][26]))))(((0[13578]|1[02])((0[1-9])|([12][0-9])|(3[01])))|(((0[469])|11)((0[1-9])|([12][1-9])|30))|(02((0[1-9])|(1[0-9])|(2[1-9])))))/;
+        if(birthday == ''){
+          layer.msg('请输入有效生日，例：19930808');
+          return false;
+        } else if(birthday.length !=8){
+          layer.msg('请输入有效生日，例：19930808');
+          return false;
+        }else if(!mybir.test(birthday)){
+          layer.msg('请输入有效的生日，例：19930808');
+          return false;
+        }
+//       邮箱校验
+        var email = jQuery('#email').val();
+        var email_reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+        if(email == ''){
+          layer.msg('邮箱不能为空');return false;
+        }else  if(!email_reg.test(email)){
+          layer.msg('请输入有效的邮箱');return false;
+        }
+        if (!senddata.telephone) {layer.msg('请输入手机号码');return false;}
+        if (!senddata.verificate) {layer.msg('请输入验证码');return false;}
+        if (!senddata.city) {layer.msg('请输入城市');return false;}
+        if (!senddata.audition) {layer.msg('请选择海选类型');return false;}
+        if (!senddata.company) {layer.msg('请输入单位名称');return false;}
+        if (!senddata.description) {layer.msg('请输入个人简介');return false;}
+        if (!senddata.imgurl) {layer.msg('请上传美照');return false;}
+
+      }else {
+        if (!senddata.modelname) {
+          $('.name input').focus();
+          $('.info-tips1').text('* 请输入姓名');return false;}else {$('.mobile-hide.info-tips1').empty();
+        }
+        if (!senddata.modeltype) {
+          $('.modelbox input').focus();
+          $('.info-tips2').text('* 请选择模特类型');return false;}else {$('.mobile-hide.info-tips2').empty();}
+        var birthday = jQuery("#birth").val();
+        var mybir = /([\d]{4}(((0[13578]|1[02])((0[1-9])|([12][0-9])|(3[01])))|(((0[469])|11)((0[1-9])|([12][1-9])|30))|(02((0[1-9])|(1[0-9])|(2[1-8])))))|((((([02468][048])|([13579][26]))00)|([0-9]{2}(([02468][048])|([13579][26]))))(((0[13578]|1[02])((0[1-9])|([12][0-9])|(3[01])))|(((0[469])|11)((0[1-9])|([12][1-9])|30))|(02((0[1-9])|(1[0-9])|(2[1-9])))))/;
+        if(birthday == ''){
+          $('.birth input').focus();
+          $('.info-tips3').text('* 请输入有效生日，例：19930808');
+          return false;
+        } else if(birthday.length !=8){
+          $('.birth input').focus();
+          $('.info-tips3').text('* 请输入有效生日，例：19930808');
+          return false;
+        }else if(!mybir.test(birthday)){
+          $('.birth input').focus();
+          $('.info-tips3').text('* 请输入有效的生日，例：19930808');
+          return false;
+        }else {
+          $('.mobile-hide.info-tips3').empty();
+        }
+        //       邮箱校验
+        var email = jQuery('#email').val();
+        var email_reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+        if(email == ''){
+          $('.email input').focus();
+          $('.info-tips5').text('* 邮箱不能为空');
+          return false;
+        }else  if(!email_reg.test(email)){
+          $('.email input').focus();
+          $('.info-tips5').text('* 请输入有效的邮箱');
+          return false;
+        }else{
+          $('.mobile-hide.info-tips5').empty();
+        }
+        if (!senddata.telephone){
+          $(".telephone input").focus();
+          $('.info-tips4').empty().text('* 请输入手机号');return false;
+        }else{$('.mobile-hide.info-tips4').empty();}
+        if (!senddata.city){
+          $(".address input[type='text']").focus();
+          $('.info-tips6').empty().text('* 请输入城市');return false;
+        }else{$('.mobile-hide.info-tips6').empty();}
+        if(!senddata.audition){
+          $(".address input[type='radio']").focus();
+          $('.info-tips6').empty().text('* 请选择海选类型');return false;}else{$('.mobile-hide.info-tips6').empty();}
+        if (!senddata.company){
+          $(".unit input").focus();
+          $('.info-tips7').text('* 请输入单位名称');return false;}else{$('.mobile-hide.info-tips7').empty();}
+        if (!senddata.description){
+          $(".resume textarea").focus();
+          $('.info-tips8').text('* 请输入个人简介');return false;}else{$('.mobile-hide.info-tips8').empty();}
+        if (!senddata.imgurl){
+          $(".photo").focus();
+          $('.info-tips9').text('* 请上传美照');return false;}else{$('.mobile-hide.info-tips9').empty();}
+        if (!senddata.verificate){
+          $(".verificate input").focus();
+          $('.info-tips10').text('* 请输入验证码');return false;}else{$('.mobile-hide.info-tips10').empty();}
+      }
+
+      $.ajax({
+        type:"POST",
+        url:"/api.php/auth/insert_data",
+        dataType:"JSON",
+        data:senddata,
+        success:function(re){
+          // layer.msg('提交成功');
+          if(re.code>0){
+            $('#submit').text('提交成功');
+            layer.open({
+                type: 1,
+                title: '&nbsp;',
+                area: ['30rem', '24rem'],
+                offset: 't', //具体配置参考：offset参数项
+                content: '<div class="layer123"><span style="text-align: center;font-size: 18px;display: block;">您的资料已提交成功</br>请等待组委会审核通知</span></div>',
+                btn: '确定',
+                btnAlign: 'c', //按钮居中
+                shade: 0, //不显示遮罩
+                yes: function(){
+                    layer.closeAll();
+                }
+            });
+            // setTimeout(function () {
+            //   window.location.reload();
+            // }, 2000);
+          }else{
+            layer.msg(re.msg);
+            return false;
+          }
+        },error:function() {
+          $('#submit').text('提交超时');
+          return false;
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<div class="comment_list" ng-controller="com_ctrl"> 
+ <input type="hidden" id="codeid" value="{$code.emailtplcodeid}">
+    <h1 class="fw_b">邮件模板</h1>
+   
+    <ul class="menu_title" >
+        <li class="active" >模板列表</li> 
+    </ul>
+
+    <div class="comment_list_all  verified_list">
+       <div ng-if="tapshow==0"  class="search_box">
+            <div class="result_opt">
+             <a  yseditadd="system_email_editadd" tapshow="1" class="pass_opt opt_active">添加菜单</a> 
+            </div>
+        </div>
+        <div class="tab-content">
+            <!--  模板列表  -->
+            <table  ng-if="tapshow==0" class="table_box view_list" >
+                <thead>
+                    <tr>
+                        <td style="width:15%;">排序</td>
+                        <td style="width:13%;">ID</td>
+                        <td style="width:15%;">标题</td>
+                        <td style="width:25%;">添加时间</td>
+                        <td style="width:13%">修改时间</td>
+                        <td style="width:13%">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-if="value.isdel!=1" ng-repeat="(key, value) in system_email_select.data">
+                        <td ng-bind="value.listorder"></td>
+                        <td ng-bind="value.id"></td>
+                        <td ng-bind="value.title"></td>
+                        <td ng-bind="value.createtime"></td>
+                        <td ng-bind="value.updatetime"></td>
+
+                        <td>
+                            <div class="comment_option">
+                                <a  yseditadd="system_email_editadd" tapshow="1">
+                                    <span key="navid">修改</span>
+                                </a>
+                                <a  theid="codeid" comdelone="system_email_del">
+                                    <span key="navid">删除</span>
+                                </a>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 模板列表 -->
+
+        <!-- 新增模板 -->
+        <div  ng-if="tapshow==1" style="margin-top:42px;">
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">邮件标题：</label>
+                <input type="text" ng-model="system_email_editadd.params.title" name="searchCom" class="set_input" placeholder="邮件标题："></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">邮箱服务器：</label>
+                <input type="text"  ng-model="system_email_editadd.params.emailserver" name="searchCom" class="set_input" placeholder="邮箱服务器"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">服务器端口：</label>
+                <input type="text" ng-model="system_email_editadd.params.emailport" name="searchCom" class="set_input" placeholder="服务器端口"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">发件人邮箱地址：</label>
+                <input type="text" name="" ng-model="system_email_editadd.params.sendemail" class="set_input" placeholder="发件人邮箱地址"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">发件人密码：</label>
+                <input type="text" ng-model="system_email_editadd.params.sendpasswod" name="searchCom" class="set_input" placeholder="发件人密码"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">发件人名称：</label>
+                <input type="text" ng-model="system_email_editadd.params.sendname" name="searchCom" class="set_input" placeholder="发件人名称"></div>
+            <div class="site_name site_info">
+                <label class="col-md-2 control-label">邮件主题：</label>
+                <input type="text" ng-model="system_email_editadd.params.emailtheme" name="searchCom" class="set_input" placeholder="邮件主题"></div>
+            <div class="site_name site_info mt_15">
+                <label class="col-md-2 control-label">描述：</label>
+                <textarea cols="5" ng-model="system_email_editadd.params.description" style="width: 350px; height: 90px;outline:none;"></textarea>
+            </div>
+            <div class="site_name site_info mt_15">
+                <label class="col-md-2 control-label">内容：</label>
+                <textarea id="editor" cols="10" ng-model="system_email_editadd.params.content"  class="col-md-9" style="width:800px; height:250px;outline:none;padding-left: 0px;"></textarea>
+            </div>
+            <div style="clear: both;"></div>
+            <div style="margin-left: 177px;">
+                <input comtime="system_menu_editadd" style="margin-top: 30px;" type="submit" value="提交" class="save_btn save_set"/>
+                <input tapshow="0" type="button" value="返回" class="save_btn save_set"/>
+            </div>
+        </div>
+        <!--  新增模板 --> </div>
+
+</div>
+</div>

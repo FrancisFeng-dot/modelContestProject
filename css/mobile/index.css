@@ -1,0 +1,402 @@
+@charset "utf-8";
+html{
+    font-size: 16px;
+}
+body{
+    background-color: #fff;
+}
+.dpn{display:none;;}
+.ps_a{
+    position:absolute;
+}
+.ps_r{
+    position:relative;
+}
+.container{
+    /*padding:0 1.4rem;*/
+}
+.fp-tableCell{
+    vertical-align:inherit ;
+}
+#menu {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    list-style-type: none;
+    z-index: 70;
+}
+#menu li {
+    float: left;
+    margin:  0 10px 0 0;
+    font-size: 14px;
+}
+#menu a {
+    float: left;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+}
+#menu .active a {
+    color: #fff;
+    background-color: #333;
+}
+.banner{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position:absolute;
+}
+.banner>li{
+    position: absolute;
+    background:#000 url("../../img/mobileImg/bg.png") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.opacity{
+    opacity: 0;
+}
+.banner>li #date{
+    position: absolute;
+    display: block;
+    width: 80%;
+    left: 10%;
+    margin: 0 auto;
+}
+.logo{
+    display: block;
+    margin-top:1rem;
+    margin-left:1.4rem;
+    width: 5.2rem;
+}
+.tc{
+    text-align: center!important;
+}
+.tr{
+    text-align: right!important;
+}
+.tl{
+    text-align: left!important;
+}
+.vam{
+    vertical-align: middle;
+}
+.vat{vertical-align: top;}
+.match{
+     /*padding:0rem 1.2rem; */
+}
+.a1,.a2,.a3,.a4,.a5{
+    opacity:0;
+}
+.match .title01{
+    width:17.8rem;
+    margin: 1rem auto;
+    display: block;
+}
+.match-info{
+}
+.match .img1{
+    width: 63%;
+    margin-right: 1.2rem;
+}
+.match .img3{
+}
+/*.match-info .img2{
+    position: absolute;
+    left: 50%;
+    bottom: 3.5rem;
+    width: 18.4rem;
+    margin-left: -9.2rem;
+}*/
+
+
+.match-info .img2{
+    text-align:center;
+    width: 100%;
+    margin-top:1.5rem;
+}
+.match-info .img2 img{
+    width: 18.4rem;
+
+}
+.match{
+
+}
+.match h2{
+    font-size: 1.3rem;
+    color: #c79d4d;
+    margin: 2.6rem 1.0rem 0.3rem;
+}
+.match p{
+       line-height: 1.6;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    word-break: break-word;
+    color: #595959;
+    letter-spacing: 0.8px;
+    padding: 0 1.0rem;
+}
+.blackbg{
+    background: #262626;
+}
+.matchbg{
+    height: 100%;
+    /*padding:0 1.2rem;*/
+}
+.matchbg h2{
+    font-size: 1.3rem;
+    color: #c79d4d;
+    margin: 3% 0 0.4rem;
+}
+.matchbg p{
+    line-height: 1.4;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    word-break: break-word;
+    color: #c1bfbf;
+    letter-spacing: 2px;
+}
+.model-info{
+    /*display: none;*/
+    /*margin-top: 420px;*/
+}
+.model-bg{
+    width: 556px;
+    padding-top: 40px;
+}
+.matchbg .img1{
+    width: 100%;
+}
+.matchbg .img2{
+    /*padding: 1.2rem;*/
+}
+.show .title{
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.1rem;
+}
+.show .title img{
+    width: 100%;
+}
+.show .title h2{
+    position: absolute;
+    bottom: 0.8rem;
+    width: 100%;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #c79d4d;
+}
+.show .title2{
+    width: 16rem;
+    margin: 2.6rem auto 1.1rem;
+}
+.office{
+    padding-bottom: 2px;
+    color: #595959; 
+}
+.office h5{
+    display: table-cell;
+    background: #c79d4d;
+    padding: 0 2px;
+    color: #fff;
+    font-size: 0.7rem;
+    line-height: 1.1;
+    margin-bottom: 0.05rem;
+}
+.office span{
+    display:table-cell;
+}
+.name-job{
+    padding: 0 2px;
+    font-size: 0.7rem;
+
+}
+.name{
+    /*width: 3em;*/
+    text-align: justify;
+
+}
+.job{
+    margin-left: 0.4rem;
+}
+.tournament{
+    position: relative;
+    height: 100vh;
+    background:url("../../img/mobileImg/bg222.png") no-repeat center;
+    background-size: cover;
+    /*padding-top: 5.4rem;*/
+}
+
+.todiv{
+    position: relative;
+    margin: 0 auto;
+    color: #d4d4d4;
+    padding-bottom: 1.2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    opacity: 0;
+}
+.todiv:nth-child(odd){
+    left: 20%;
+}
+.todiv:nth-child(even){
+    left: -20%;
+}
+.thanks{
+    position: relative;
+    height: 100vh;
+    background:url("../../img/mobileImg/bg111.png") no-repeat center;
+    background-size: cover;
+    padding-top: 1.4rem;
+}
+.thanks-box{
+    color: #d4d4d4;
+    text-align: center;
+    font-size: 0.8rem;
+      position: absolute;
+    top: 4%;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+.thanks-box div{
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+    position: relative;
+}
+.video-box{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+}
+.video-box .other{
+    line-height: 1.4;
+}
+.video{
+    margin-top: 2.2rem;
+
+}
+video{
+    width: 18rem;
+    height: 12rem;
+    object-fit: fill;
+}
+.videi-title{
+    display: inline-block;
+    vertical-align: middle;
+    width: 7.5rem;
+}
+.tournament>img{
+    position: absolute;
+    bottom: 0;
+
+}
+.title-img{
+    width: 68%;
+   
+}
+.person-box{
+    margin-top:1.2rem;
+}
+.person-info{
+    padding-bottom: 0.8rem;
+}
+.person{
+    color: #515151;
+}
+.person h3{
+    font-size: 1rem;
+    color: #c79d4d;
+    border-bottom:1px solid #c79d4d;
+    margin-bottom: 0.1rem;
+    width: 50%;
+}
+.person p{
+    font-size: 0.8rem;
+    line-height: 1.2;
+    padding-bottom: 0.4rem;
+    letter-spacing: 1px;
+    padding-top: 0.2rem;
+}
+.event04{
+    background: #c79d4d;
+    height: 100%;
+}
+
+.event04 .title{
+    background: #fff;
+}
+.event04 .title>img{
+    width: 15rem;
+    padding: 2rem 0 2.2rem;
+}
+.sign{
+    text-align: center;
+}
+.sign h3{
+    color: #fff;
+    margin: 1.8rem 0 1rem;
+
+}
+.sign img{
+    display: block;
+    width: 55%;
+    margin: 0 auto;
+    padding-left: 18px; 
+}
+.sign a{
+    display: block;
+    margin: 0.5rem auto 0;
+    width: 13.4rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #c39d61;
+    background: #64231b;
+    text-align: center;
+    line-height: 2.4;
+    cursor: pointer;
+}
+
+
+
+
+.toplay{
+     position: absolute;
+    top: 6rem;
+    right: 9rem;
+    width: 4rem;
+    height: 4rem;
+        z-index: 999999;
+    background: inherit;   
+}
+
+.audio-mute {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    width: 15%;
+    z-index: 1000;
+    line-height: 0;
+}
+
+@media screen and (max-height:530px){ /*  iPhone 4,5 */
+    
+}
+@media (min-height:531px) and (max-height:600px){ /*  iPhone 4,5 */
+    
+}
+@media (min-height:531px) and (max-height:600px){ /*  iPhone 6 */
+    html{ font-size: 12px;}
+}
+@media screen and (min-width:414px){  /*  iPhone 6 plus */
+    html{ font-size: 13px;}
+}
+@media screen and (min-width:600px){
+    html{ font-size:62.5%;}
+}

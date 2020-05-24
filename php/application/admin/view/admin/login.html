@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="/php/public/admin/css/common.css">
+    <link rel="stylesheet" href="/YS-frame/layer/2.2/skin/layer.css">
+    <script type="text/javascript" src="/YS-frame/jquery/jquery/1.10.1/jquery.js"></script>
+    <script src="/YS-frame/layer/2.2/layer.js" type="text/javascript"></script>
+</head>
+<body>
+    <img class="loginbk" src="/php/public/admin/images/regisbk.jpg" alt="">
+    <form method="get">
+    <div class="loginmain">
+        <h3>欢迎登录超级管理后台</h3>
+        <ul>
+            <li>
+            <input id="username" class="iconA" type="text" name="" value="" placeholder="请输入登录账号">
+            </li>
+            <li>
+            <input id="password" class="iconA iconB" type="password" name="" value="" placeholder="请输入登录密码">
+            </li>
+            <li>
+            <input id="captcha" class="iconA iconC W200" type="text" placeholder="请输入验证码">
+            <img class="code" alt="验证码" id="captchahit" src="/admin.php/Base/verify?timestamp='+Date.parse(new Date())" onclick="this.src='/admin.php/Base/verify?timestamp='+Date.parse(new Date())">
+            </li>
+        </ul>
+        <a href="javascript:;"><div class="loginBtn">登录</div></a>
+        <p id="tip"></p>
+        <div class="loginImg">
+            <img class="imgPeople" src="/php/public/admin/images/peopleicon.png" alt="">
+        </div>
+    </div>
+    </form>
+    <script>
+    $(function(){
+        $('.loginBtn').click(function() {
+             var  a=$('#username').val();
+             var  b=$('#password').val();
+             var  c=$('#captcha').val();
+            var sendData={
+                username:a,
+                password:b,
+                captcha:c
+            };
+            $.ajax({
+                url:'/admin.php/Base/login',
+                type:"POST",
+                data:sendData,
+                success:function(h){
+                if (h.code==1) {
+                    layer.msg('系统登录中…');
+                    setTimeout(function () {
+                      location.href = '/admin.php/admin/index';
+                    }, 1000);
+                  } else {
+                    $('#tip').html(h.msg); 
+                  }
+                   $('#captchahit').attr('src','/admin.php/Base/verify?timestamp='+Date.parse(new Date()));
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

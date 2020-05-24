@@ -1,0 +1,115 @@
+<?php
+//配置文件
+return [
+// 默认控制器名
+    'default_controller'    => 'Admin',
+    // 验证码设置
+    'captcha'   =>  [
+        'fontSize'    =>    30,    // 验证码字体大小
+        'length'      =>    4,     // 验证码位数
+        'useNoise'    =>    false, // 关闭验证码杂点
+    ],
+    //新增模型时候的默认表字段
+  'default_values'=>[
+    [
+      'value_title'=>'标题',
+      'value_name'=>'title',
+      'listorder'=>'1',
+      'attr'=>'input',
+      'tipmsg'=>'',
+      'errormsg'=>'',
+      'nullmsg'=>'请填写标题',
+      'datatype'=>'*1-250',
+      'tabattr'=>'1',
+      'notnull'=>'1',
+      'issystem'=>'1',
+      ],
+    [
+      'value_title'=>'描述',
+      'value_name'=>'description',
+      'listorder'=>'2',
+      'attr'=>'textarea',
+      'tipmsg'=>'',
+      'errormsg'=>'',
+      'datatype'=>'*1-250',
+      'tabattr'=>'1',
+      'issystem'=>'1',
+      ],
+    [
+      'value_title'=>'缩略图',
+      'value_name'=>'thumb',
+      'listorder'=>'3',
+      'attr'=>'image',
+      'tipmsg'=>'',
+      'tabattr'=>'1',
+      'issystem'=>'1',
+      ],
+    [
+      'value_title'=>'内容',
+      'value_name'=>'content',
+      'listorder'=>'4',
+      'attr'=>'editor',
+      'tipmsg'=>'',
+      'nullmsg'=>'请填写内容',
+      'tabattr'=>'1',
+      'issystem'=>'1',
+      ],
+    [
+      'value_title'=>'SEO标题',
+      'value_name'=>'seo_title',
+      'listorder'=>'999',
+      'attr'=>'input',
+      'tabattr'=>'2',
+      'issystem'=>'1',
+      ],
+    [
+      'value_title'=>'SEO描述',
+      'value_name'=>'seo_description',
+      'listorder'=>'999',
+      'attr'=>'textarea',
+      'tabattr'=>'2',
+      'issystem'=>'1',
+      ],
+    [
+      'value_title'=>'SEO关键字',
+      'value_name'=>'seo_keyword',
+      'listorder'=>'999',
+      'attr'=>'textarea',
+      'tabattr'=>'2',
+      'issystem'=>'1',
+      ],
+      [
+      'value_title'=>'相关文章',
+      'value_name'=>'relation',
+      'listorder'=>'999',
+      'attr'=>'input',
+      'tabattr'=>'3',
+      'issystem'=>'1',
+      ],
+    [
+         'value_title'=>'访问密码',
+         'value_name'=>'password',
+         'listorder'=>'999',
+         'attr'=>'input',
+         'tabattr'=>'1',
+         'issystem'=>'1',
+         ],
+    [
+         'value_title'=>'点击数量',
+         'value_name'=>'hit',
+         'listorder'=>'999',
+         'attr'=>'input',
+         'tabattr'=>'1',
+         'issystem'=>'1',
+         ],
+    [
+     'value_title'=>'标签',
+     'value_name'=>'tag',
+     'listorder'=>'999',
+     'attr'=>'textarea',
+     'tabattr'=>'1',
+     'issystem'=>'1',
+     ],
+    ]
+
+];

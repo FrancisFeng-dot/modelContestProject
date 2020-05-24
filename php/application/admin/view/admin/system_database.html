@@ -1,0 +1,43 @@
+<div class="comment_list" ng-controller="com_ctrl">
+ <input type="hidden" id="codeid" value="{$code.dbbasecodeid}">
+	<h1 class="fw_b">数据库管理</h1>
+    <ul class="menu_title" id="myTab">
+        <li class="active">数据库列表</li>
+    </ul>
+	<div class="comment_list_all verified_list">
+		<div class="search_box"> 
+ 
+			 <div class="result_opt">
+			 <a comtime="system_database_add"class="pass_opt opt_active">数据库备份</a>
+ 
+			</div>
+			 
+		</div>
+		<table class="table_box view_list">
+			<thead>
+				<tr>
+					<td style="width: 5%">ID</td>
+					<td style="width: 35%">数据备份名称</td>
+					<td style="width: 20%">更新时间</td>
+					<td style="width: 10%">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+			<tr ng-if="value.isdel!=1" ng-repeat="(key, value) in system_database_select.data">
+			    <td ng-bind="key+1"></td>
+				<td ng-bind="value.name"></td>
+				<td ng-bind="value.createtime"></td>
+				<td>
+					<div class="comment_option">
+					<a href="javascript:;" ><span theid="name" tip="确定要还原么？" comaskrun="system_database_up">还原</span></a>
+
+						<a href="/php/public/db_up/{{value.name}}" download="/php/public/db_up/{{value.name}}"><span>下载</span></a>
+	 		     		<a href="javascript:;" ><span theid="name" comdelone="system_database_del">删除</span></a>
+
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
